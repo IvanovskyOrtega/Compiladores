@@ -16,9 +16,21 @@ AFD::AFD(vector<Estado*> estados, Estado* estadoInicial, vector<char> alfabeto, 
 
 AFD::AFD(){};
 
+vector<Estado*> AFD::obtenerEstados(){
+  return afd_estados;
+}
+
+vector<Transicion*> AFD::obtenerTransiciones(){
+  return afd_tablaDeTransiciones;
+}
+
+Estado* AFD::obtenerEstadoInicial(){
+  return afd_estadoInicial;
+}
+
 void AFD::toString(){
   int i;
-  cout << "AFD = {" << endl;
+  cout << "\nAFD = {" << endl;
   cout << "\tQ = {" << endl;
   for(i = 0 ; i < (int)afd_estados.size() ; i++){
     if(i != 0){
