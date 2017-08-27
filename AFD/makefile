@@ -15,4 +15,4 @@ clean:
 run:
 	./a.out
 indent:
-	indent main.cpp AFD.cpp Estado.cpp Pruebas.cpp Transicion.cpp bresenham.hpp Transicion.hpp Estado.hpp Pruebas.hpp -linux
+	indent main.cpp AFD.cpp Estado.cpp Pruebas.cpp Transicion.cpp AFD.hpp Transicion.hpp Estado.hpp Pruebas.hpp -linux
