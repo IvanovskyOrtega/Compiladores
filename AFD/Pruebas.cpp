@@ -17,8 +17,6 @@ bool Pruebas::buscarSimbolo(vector<char> alfabeto, char simbolo){
   for(int i = 0; i < k ; i++){
     if(alfabeto[i] == simbolo)
       return true;
-    else
-      return false;
   }
   return false;
 }
