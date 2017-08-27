@@ -30,16 +30,18 @@ Estado* AFD::obtenerEstadoInicial(){
 
 void AFD::toString(){
   int i;
+  int k = afd_estados.size();
   cout << "\nAFD = {" << endl;
-  cout << "\tQ = {" << endl;
-  for(i = 0 ; i < (int)afd_estados.size() ; i++){
-    if(i != 0){
-      cout << "\t\tq" << afd_estados[i]->numeroDeEstado;
-      if(afd_estados[i]->esFinal)
-        cout << " (final)" << endl;
+  cout << "\tQ = { ";
+  for(i = 0 ; i < k ; i++){
+    if(i != 0 && i != k-1 ){
+      cout << "q" << afd_estados[i]->numeroDeEstado << ", ";
+    }
+    else if(i==0){
+      cout << " q0 ,";
     }
     else{
-      cout << "\t\tq0 ," << endl;
+      cout << "q" << afd_estados[i]->numeroDeEstado << " ";
     }
   }
   cout << "\t} , " << endl;
@@ -58,15 +60,15 @@ void AFD::toString(){
     cout << ") = q" << afd_tablaDeTransiciones[i]->estadoDeTransicion;
     cout << endl;
   }
-  cout << "\t}," << endl;cout << "\tQf = {" << endl;
+  cout << "\t}," << endl;cout << "\tQf = { ";
   for(i = 0 ; i < (int)afd_estados.size() ; i++){
     if(afd_estados[i]->esFinal){
       if(i != (int)(afd_estados.size()-1))
-        cout << "\t\tq" << afd_estados[i]->numeroDeEstado << "," << endl;
+        cout << "q" << afd_estados[i]->numeroDeEstado << ", ";
       else
-        cout << "\t\tq" << afd_estados[i]->numeroDeEstado << endl;
+        cout << "q" << afd_estados[i]->numeroDeEstado;
     }
   }
-  cout << "\t} , " << endl;
+  cout << " }" << endl;
   cout << "}" << endl;
 }
