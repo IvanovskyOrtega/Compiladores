@@ -5,7 +5,6 @@
 #include "Transicion.hpp"
 #include "Pruebas.hpp"
 
-//#include "AFN.hpp"
 using namespace std;
 
 int main(int argc, char *argv[]){
@@ -15,19 +14,16 @@ int main(int argc, char *argv[]){
   vector<char> alfabeto;
   vector<Estado*> estados;
   vector<Transicion*> tablaDeTransiciones;
-  cout << "Ingresa el numero de simbolos para el alfabeto del automata: ";
+  cout << "\nIngresa el numero de simbolos para el alfabeto del automata: ";
   cin >> numeroDeSimbolos;
   alfabeto = p->definirAlfabeto(numeroDeSimbolos);
-  cout << "Ingresa el numero de estados del automata: ";
+  cout << "\nIngresa el numero de estados del automata: ";
   cin >> numeroDeEstados;
   estados = p->agregarEstados(numeroDeEstados);
-  cout << "Ingresa el numero de transiciones del automata: ";
+  cout << "\nIngresa el numero de transiciones del automata: ";
   cin >> numeroDeTransiciones;
   tablaDeTransiciones = p->definirTransiciones(numeroDeTransiciones, alfabeto);
   AFD afd(estados,estados[0],alfabeto,tablaDeTransiciones);
-  afd.toString();
-  cout << "Ingresa una cadena de prueba: ";
-  cin >> cadenaDePrueba;
-  //iniciarPrueba(afd, cadenaDePrueba);
+  p->probarCadenas(afd);
   return 0;
 }
