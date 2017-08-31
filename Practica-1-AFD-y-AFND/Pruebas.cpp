@@ -162,22 +162,21 @@ bool Pruebas::cambiarDeEstadoAFN(vector<Estado*> estados, vector<Transicion*> ta
     cout << endl;
     for(i = 0; i < k; i++){
         if(tablaDeTransiciones[i]->estadoActual == estadoActual->numeroDeEstado){
-          if(tablaDeTransiciones[i]->esTransicionEpsilon || tablaDeTransiciones[i]->simboloDeTransicion == simbolo){
+          if(tablaDeTransiciones[i]->esTransicionEpsilon){
             tieneTransicion = true;
-            if(!tablaDeTransiciones[i]->esTransicionEpsilon){
-              cout << "\tδ(q" << estadoActual->numeroDeEstado << "," << simbolo << ")";
-              cout << " = q" << tablaDeTransiciones[i]->estadoDeTransicion << endl;
-              cambio = cambiarDeEstadoAFN(estados, tablaDeTransiciones, estados[tablaDeTransiciones[i]->estadoDeTransicion], cadena, cadena[indice],indice);
-              resultado = resultado || cambio;
-            }
-            else{
-              indice--;
-              cout << "\tδ(q" << estadoActual->numeroDeEstado << ", E)";
-              cout << " = q" << tablaDeTransiciones[i]->estadoDeTransicion << endl;
-              cambio = cambiarDeEstadoAFN(estados, tablaDeTransiciones, estados[tablaDeTransiciones[i]->estadoDeTransicion], cadena, cadena[indice],indice);
-              resultado = resultado || cambio;
-              indice++;
-            }
+            indice--;
+            cout << "\tδ(q" << estadoActual->numeroDeEstado << ", E)";
+            cout << " = q" << tablaDeTransiciones[i]->estadoDeTransicion << endl;
+            cambio = cambiarDeEstadoAFN(estados, tablaDeTransiciones, estados[tablaDeTransiciones[i]->estadoDeTransicion], cadena, cadena[indice],indice);
+            resultado = resultado || cambio;
+            indice++;
+          }
+          else if(tablaDeTransiciones[i]->simboloDeTransicion == simbolo){
+            tieneTransicion = true;
+            cout << "\tδ(q" << estadoActual->numeroDeEstado << "," << simbolo << ")";
+            cout << " = q" << tablaDeTransiciones[i]->estadoDeTransicion << endl;
+            cambio = cambiarDeEstadoAFN(estados, tablaDeTransiciones, estados[tablaDeTransiciones[i]->estadoDeTransicion], cadena, cadena[indice],indice);
+            resultado = resultado || cambio;
           }
         }
         else if(!tieneTransicion && i == k-1){
@@ -188,8 +187,19 @@ bool Pruebas::cambiarDeEstadoAFN(vector<Estado*> estados, vector<Transicion*> ta
     }
     return resultado;
   }
-  else
+  else{
+    for(i = 0; i < k; i++){
+        if(tablaDeTransiciones[i]->estadoActual == estadoActual->numeroDeEstado){
+          if(tablaDeTransiciones[i]->esTransicionEpsilon){
+            tieneTransicion = true;
+            cout << "\tδ(q" << estadoActual->numeroDeEstado << ", E)";
+            cout << " = q" << tablaDeTransiciones[i]->estadoDeTransicion << endl;
+            return cambiarDeEstadoAFN(estados, tablaDeTransiciones, estados[tablaDeTransiciones[i]->estadoDeTransicion], cadena, cadena[indice],indice);
+          }
+        }
+    }
     return estadoActual->esFinal;
+  }
 }
 
 bool Pruebas::iniciarPrueba(AFD automataDePrueba){
