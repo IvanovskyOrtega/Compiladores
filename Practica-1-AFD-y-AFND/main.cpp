@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
        default:
         cout << "Opcion no valida" << endl;
      }
-     cout << "Desea crear otro automata? (s/n)";
+     cout << "Desea crear otro automata? (s/n)" << endl;
      cin >> opcion;
   }
 	return 0;
