@@ -1,17 +1,15 @@
 #include <iostream>
 #include <cstring>
-#include "AFD.hpp"
-#include "AFN.hpp"
-#include "Estado.hpp"
-#include "Transicion.hpp"
-#include "Pruebas.hpp"
+#include "PruebasAFD.hpp"
+#include "PruebasAFN.hpp"
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
   char tipoAutomata, opcion;
-	Pruebas *p = new Pruebas();
+	PruebasAFD *p1 = new PruebasAFD();
+	PruebasAFN *p2 = new PruebasAFN();
   while(opcion != 'n'){
 	   cout << "Ingrese el tipo de automata que desea crear:" << endl;
      cout << "1\tAutomata Finito Determinista (AFD)" << endl;
@@ -20,13 +18,13 @@ int main(int argc, char *argv[])
      cin >> tipoAutomata;
      switch(tipoAutomata){
        case '1':
-        p->crearAFD(); break;
+        p1->crearAFD(); break;
        case '2':
-        p->crearAFN(); break;
+        p2->crearAFN(); break;
        default:
         cout << "Opcion no valida" << endl;
      }
-     cout << "Desea crear otro automata? (s/n)" << endl;
+     cout << "Desea crear otro automata? (s/n)";
      cin >> opcion;
   }
 	return 0;
