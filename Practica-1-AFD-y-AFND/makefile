@@ -1,7 +1,9 @@
-a.out: main.o AFN.o AFD.o Estado.o Transicion.o Pruebas.o
-	g++ main.o AFN.o AFD.o Estado.o Transicion.o Pruebas.o   -Wall
+a.out: main.o Automata.o AFN.o AFD.o Estado.o Transicion.o Pruebas.o PruebasAFD.o PruebasAFN.o
+	g++ main.o Automata.o AFN.o AFD.o Estado.o Transicion.o Pruebas.o PruebasAFD.o PruebasAFN.o  -Wall
 main.o: main.cpp
 	g++ -c main.cpp -Wall
+Automata.o: Automata.cpp
+	g++ -c Automata.cpp -Wall
 AFN.o: AFN.cpp
 	g++ -c AFN.cpp -Wall
 AFD.o: AFD.cpp
@@ -10,10 +12,14 @@ Estado.o: Estado.cpp
 	g++ -c Estado.cpp -Wall
 Pruebas.o: Pruebas.cpp
 	g++ -c Pruebas.cpp -Wall
+PruebasAFD.o: PruebasAFD.cpp
+	g++ -c PruebasAFD.cpp -Wall
+PruebasAFN.o: PruebasAFN.cpp
+	g++ -c PruebasAFN.cpp -Wall
 Transicion.o: Transicion.cpp
 	g++ -c Transicion.cpp -Wall
 clean:
-	rm main.o AFN.o AFD.o Estado.o Transicion.o Pruebas.o a.out
+	rm main.o Automata.o AFN.o AFD.o Estado.o Transicion.o Pruebas.o PruebasAFD.o PruebasAFN.o a.out
 run:
 	./a.out
 indent:
