@@ -1,25 +1,13 @@
 #ifndef _AFD_HPP_
 #define _AFD_HPP_
 
-#include <vector>
-#include "Estado.hpp"
-#include "Transicion.hpp"
+#include "Automata.hpp"
 
-
-using namespace std;
-class AFD{
-private:
-  vector<Estado*> afd_estados;
-  Estado* afd_estadoInicial;
-  vector<char> afd_alfabeto;
-  vector<Transicion*> afd_tablaDeTransiciones;
+class AFD : public Automata{
 public:
-  void toString();
-  vector<Estado*> obtenerEstados();
-  vector<Transicion*> obtenerTransiciones();
-  Estado* obtenerEstadoInicial();
-  AFD();
-  AFD(vector<Estado*> estados, Estado* estadoInicial, vector<char> alfabeto, vector<Transicion*> tablaDeTransiciones);
+  AFD(std::string archivo, std::string tipo):Automata(archivo, tipo){};
+  AFD(std::vector<Estado*> estados, std::vector<char> alfabeto, Estado* estadoInicial, std::vector<Transicion*> tablaDeTransiciones):Automata(estados, alfabeto, estadoInicial, tablaDeTransiciones){};
+  bool cambiarDeEstadoAFD(std::vector<Estado*> estados, std::vector<Transicion*> tablaDeTransiciones, Estado* estadoActual, std::string cadena, char simbolo, int indice);
 };
 
 #endif
