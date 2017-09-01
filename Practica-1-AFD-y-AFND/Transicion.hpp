@@ -1,8 +1,6 @@
 #ifndef _TRANSICION_HPP_
 #define _TRANSICION_HPP_
 
-#include <vector>
-
 using namespace std;
 
 class Transicion{
