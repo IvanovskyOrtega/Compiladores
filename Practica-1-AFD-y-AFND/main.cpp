@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	PruebasAFD *p1 = new PruebasAFD();
 	PruebasAFN *p2 = new PruebasAFN();
   while(opcion != 'n'){
-	   cout << "Ingrese el tipo de automata que desea crear:" << endl;
+     cout << "Ingrese el tipo de automata que desea crear:" << endl;
      cout << "1\tAutomata Finito Determinista (AFD)" << endl;
      cout << "2\tAutomata Finito No Determinista (AFN)" << endl;
      cout << "Ingrese su seleccion: ";
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
        default:
         cout << "Opcion no valida" << endl;
      }
-     cout << "Desea crear otro automata? (s/n)";
+     cout << "Desea crear otro automata? (s/n):" << endl;
      cin >> opcion;
   }
 	return 0;
