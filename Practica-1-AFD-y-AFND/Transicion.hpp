@@ -1,6 +1,8 @@
 #ifndef _TRANSICION_HPP_
 #define _TRANSICION_HPP_
 
+using namespace std;
+
 class Transicion{
 public:
   int estadoActual;
