@@ -3,7 +3,7 @@
 
 class Estado {
 public:
-  int numeroDeEstado;	
+  int numeroDeEstado;
   bool esFinal;
   Estado();
   Estado(int numDeEstado, bool tipo);};
