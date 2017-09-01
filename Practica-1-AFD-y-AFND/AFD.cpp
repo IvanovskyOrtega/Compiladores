@@ -1,75 +1,26 @@
-#include <iostream>
 #include "AFD.hpp"
-#include "Estado.hpp"
-#include "Transicion.hpp"
-
 
 using namespace std;
 
-/** CONSTRUCTORES **/
-
-AFD::AFD(vector<Estado*> estados, Estado* estadoInicial, vector<char> alfabeto, vector<Transicion*> tablaDeTransiciones){
-    afd_estados = estados;
-    afd_estadoInicial = estadoInicial;
-    afd_alfabeto = alfabeto;
-    afd_tablaDeTransiciones = tablaDeTransiciones;
-};
-
-AFD::AFD(){};
-
-vector<Estado*> AFD::obtenerEstados(){
-  return afd_estados;
-}
-
-vector<Transicion*> AFD::obtenerTransiciones(){
-  return afd_tablaDeTransiciones;
-}
-
-Estado* AFD::obtenerEstadoInicial(){
-  return afd_estadoInicial;
-}
-
-void AFD::toString(){
+bool AFD::cambiarDeEstadoAFD(vector<Estado*> estados, vector<Transicion*> tablaDeTransiciones, Estado* estadoActual, string cadena, char simbolo, int indice){
   int i;
-  int k = afd_estados.size();
-  cout << "\nAFD = {" << endl;
-  cout << "\tQ = { ";
-  for(i = 0 ; i < k ; i++){
-    if(i != 0 && i != k-1 ){
-      cout << "q" << afd_estados[i]->numeroDeEstado << ", ";
-    }
-    else if(i==0){
-      cout << " q0 ,";
-    }
-    else{
-      cout << "q" << afd_estados[i]->numeroDeEstado << " ";
-    }
-  }
-  cout << "\t} , " << endl;
-  cout << "\tΣ = {" << " ";
-  for(i = 0 ; i < (int)afd_alfabeto.size() ; i++){
-    if(i != (int)afd_alfabeto.size()-1)
-      cout << afd_alfabeto[i] << ", ";
-    else
-      cout << afd_alfabeto[i] << " } ," << endl;
-  }
-  cout << "\tq0," << endl;
-  cout << "\tδ = {" << endl;
-  for(i = 0 ; i < (int)afd_tablaDeTransiciones.size() ; i++){
-    cout << "\t\tδ(q" << afd_tablaDeTransiciones[i]->estadoActual;
-    cout << " , " << afd_tablaDeTransiciones[i]->simboloDeTransicion;
-    cout << ") = q" << afd_tablaDeTransiciones[i]->estadoDeTransicion;
+  int k = tablaDeTransiciones.size();
+  if(indice < (int)cadena.size()){
+    indice++;
     cout << endl;
-  }
-  cout << "\t}," << endl;cout << "\tQf = { ";
-  for(i = 0 ; i < (int)afd_estados.size() ; i++){
-    if(afd_estados[i]->esFinal){
-      if(i != (int)(afd_estados.size()-1))
-        cout << "q" << afd_estados[i]->numeroDeEstado << ", ";
-      else
-        cout << "q" << afd_estados[i]->numeroDeEstado;
+    for(i = 0; i < k; i++){
+        if(tablaDeTransiciones[i]->estadoActual == estadoActual->numeroDeEstado){
+          if(tablaDeTransiciones[i]->simboloDeTransicion == simbolo){
+            cout << "\tδ(q" << estadoActual->numeroDeEstado << "," << simbolo << ")";
+            cout << " = q" << tablaDeTransiciones[i]->estadoDeTransicion << endl;
+            return cambiarDeEstadoAFD(estados, tablaDeTransiciones, estados[tablaDeTransiciones[i]->estadoDeTransicion], cadena, cadena[indice],indice);
+          }
+        }
     }
+    cout << "\tδ(q" << estadoActual->numeroDeEstado << "," << simbolo << ")";
+    cout << " = M" << endl;
+    return false;
   }
-  cout << " }" << endl;
-  cout << "}" << endl;
+  else
+    return estadoActual->esFinal;
 }
