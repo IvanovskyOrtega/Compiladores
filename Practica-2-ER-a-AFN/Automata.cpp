@@ -169,7 +169,7 @@ void Automata::toString(string tipo){
       cout << "q" << automata_estados[i]->numeroDeEstado << ", ";
     }
     else if(i==0){
-      cout << " q0 ,";
+      cout << " q" << automata_estados[i]->numeroDeEstado << " ,";
     }
     else{
       cout << "q" << automata_estados[i]->numeroDeEstado << " ";
@@ -183,7 +183,7 @@ void Automata::toString(string tipo){
     else
       cout << automata_alfabeto[i] << " } ," << endl;
   }
-  cout << "\tq0," << endl;
+  cout << "\tq"<< automata_estadoInicial->numeroDeEstado << "," << endl;
   cout << "\tδ = {" << endl;
   for(i = 0 ; i < (int)automata_tablaDeTransiciones.size() ; i++){
     cout << "\t\tδ(q" << automata_tablaDeTransiciones[i]->estadoActual;
