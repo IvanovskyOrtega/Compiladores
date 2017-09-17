@@ -1,0 +1,3 @@
+1.- Arreglar la creación del alfabeto.
+2.- Documentar... y mucho :'(
+3.- Optimizar código (si puedo jaja) 
