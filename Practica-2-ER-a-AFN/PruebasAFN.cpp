@@ -88,117 +88,94 @@ void PruebasAFN::crearAFN(){
 
 AFN PruebasAFN::convertirERaAFN(string expresionRegular){
   AFN afn;
-  Estado* e = afn.obtenerEstadoInicial();
   string subexpresion;
   int i = 0;
   int j;
-  int k;
   int balanceo = 0;
   int cadlen = expresionRegular.size();
+  bool parentesis = true;
   while(i < cadlen){
     if(expresionRegular[i] == '('){
       j = i + 1;
       balanceo++;
-      while(true){
+      while(parentesis && j < cadlen){
         if(expresionRegular[j] == ')'){
           balanceo--;
           if(balanceo == 0){
-            break;
+            parentesis = false;
           }
         }
-        else if(expresionRegular[i] == '('){
+        else if(expresionRegular[j] == '('){
           balanceo++;
         }
         j++;
       }
-      subexpresion = expresionRegular.substr(i+1,j-1);
+      subexpresion = expresionRegular.substr(i+1,j-2);
       AFN subAfn = convertirERaAFN(subexpresion);
-      if(j != cadlen-1 && expresionRegular[j+1] == '*'){
+      if(j != cadlen && expresionRegular[j] == '*'){
         //kleen de el sub afn
+        afn.aplicarCerraduraKleenAFN(&subAfn);
+        i++;
       }
-      else if(j != cadlen-1 && expresionRegular[j+1] == '+'){
+      else if(j != cadlen && expresionRegular[j] == '+'){
         //positiva de el sub afn
+        afn.aplicarCerraduraPositivaAFN(&subAfn);
+        i++;
       }
-      vector<Transicion*> transiciones; 
-      vector<Transicion*> transiciones2; 
-      transiciones = obtenerTransiciones(subAfn.obtenerEstadoInicial(),subAfn.obtenerTablaDeTransiciones());
-      int tamanioTabla = transiciones.size();
-      for(k = 0 ; k < tamanioTabla ; k++){
-        afn.automata_tablaDeTransiciones.reserve(1);
-        afn.automata_tablaDeTransiciones.push_back(transiciones[k]);
+      if((int)afn.automata_estados.size()==0){
+        afn.automata_estadoInicial = subAfn.automata_estadoInicial;
       }
-      transiciones2 = obtenerTransicionesInicial(subAfn.obtenerEstadoInicial(),afn.obtenerEstadoFinal(),subAfn.obtenerTablaDeTransiciones());
-      tamanioTabla = transiciones2.size();
-      for(k = 0 ; k < tamanioTabla ; k++){
-        afn.automata_tablaDeTransiciones.reserve(1);
-        afn.automata_tablaDeTransiciones.push_back(transiciones2[k]);
-      }
+      afn.automata_alfabeto = subAfn.automata_alfabeto;
+      int numeroDeEstados = afn.automata_estados.size();
+      afn.eliminarEstadoFinal(&afn);
+      afn.renumerarEstados(&subAfn, numeroDeEstados);
+      afn.agregarEstados(&afn, subAfn.automata_estados);
+      afn.agregarTransiciones(&afn, subAfn.automata_tablaDeTransiciones);
+      afn.automata_estadoFinal = subAfn.automata_estadoFinal;
       i = j+1;
     }
     if(isalpha(expresionRegular[i])){
       //concatenar
-    }
-    else if(expresionRegular[i] == '*'){
-      //kleen del ultimo estado
-    }
-    else if(expresionRegular[i] == '+'){
-      //
+      bool esEpsilon = false;
+      if(expresionRegular[i]=='E'){
+        esEpsilon = true;
+      }
+      if(i < cadlen - 1 ){
+        if(expresionRegular[i+1]=='*'){
+          afn.aplicarCerraduraKleen(&afn,expresionRegular[i],esEpsilon);
+          i+=2;
+        }
+        else if(expresionRegular[i+1]=='+'){
+          afn.aplicarCerraduraPositiva(&afn,expresionRegular[i],esEpsilon);
+          i+=2;
+        }
+        else{
+          afn.concatenar(&afn,expresionRegular[i],esEpsilon);
+          afn.automata_alfabeto.reserve(1);
+          afn.automata_alfabeto.push_back(expresionRegular[i]);
+          i++;
+        }
+      }
+      else{
+        afn.concatenar(&afn,expresionRegular[i],esEpsilon);
+        afn.automata_alfabeto.reserve(1);
+        afn.automata_alfabeto.push_back(expresionRegular[i]);
+        i++;
+      }
     }
     else if(expresionRegular[i] == '|'){
-      AFN subAfnUnion;
       //Union
+      AFN subAfnUnion;
+      int k;
+      for(k = i+1 ; k < cadlen ; k++){
+        if(expresionRegular[k] == '|' || expresionRegular[i] == '(' || expresionRegular[i] == ')'){
+          break;
+        }
+      }
+      subAfnUnion = convertirERaAFN(expresionRegular.substr(i+1,k-1));
+      afn.unir(&afn,subAfnUnion);
+      i=k;
     }
   }
   return afn;
-}
-
-vector<Transicion*> PruebasAFN::obtenerTransiciones(Estado* estadoInicial, std::vector<Transicion*> transiciones){
-  int numeroDeEstado = estadoInicial->numeroDeEstado;
-  int estado1;
-  int estado2;
-  char simbolo;
-  vector<Transicion*> nuevasTransiciones;
-  for(int i = 0 ; i < (int)transiciones.size() ; i++){
-    if(transiciones[i]->estadoDeTransicion != numeroDeEstado && transiciones[i]->estadoActual != numeroDeEstado){
-      estado1 = transiciones[i]->estadoActual;
-      estado2 = transiciones[i]->estadoDeTransicion;
-      simbolo = transiciones[i]->simboloDeTransicion;
-      nuevasTransiciones.reserve(1);
-      nuevasTransiciones.push_back(new Transicion(estado1,estado2,simbolo));
-    }
-  }
-  return nuevasTransiciones; 
-}
-
-vector<Transicion*> PruebasAFN::obtenerTransicionesInicial(Estado* estadoInicial, Estado* estadoFinal, std::vector<Transicion*> transiciones){
-  int numeroDeEstado = estadoInicial->numeroDeEstado;
-  int numeroDeEstadoFinal = estadoFinal->numeroDeEstado;
-  int estado1;
-  int estado2;
-  char simbolo;
-  vector<Transicion*> nuevasTransiciones;
-  for(int i = 0 ; i < (int)transiciones.size() ; i++){
-    if(transiciones[i]->estadoDeTransicion == numeroDeEstado && transiciones[i]->estadoActual == numeroDeEstado){
-      estado1 = numeroDeEstadoFinal;
-      estado2 = numeroDeEstadoFinal;
-      simbolo = transiciones[i]->simboloDeTransicion;
-      nuevasTransiciones.reserve(1);
-      nuevasTransiciones.push_back(new Transicion(estado1,estado2,simbolo));
-    }
-    else if(transiciones[i]->estadoDeTransicion == numeroDeEstado){
-      estado1 = transiciones[i]->estadoActual;
-      estado2 = numeroDeEstadoFinal;
-      simbolo = transiciones[i]->simboloDeTransicion;
-      nuevasTransiciones.reserve(1);
-      nuevasTransiciones.push_back(new Transicion(estado1,estado2,simbolo));
-    }
-    else if(transiciones[i]->estadoActual == numeroDeEstado){
-      estado1 = numeroDeEstadoFinal;
-      estado2 = transiciones[i]->estadoDeTransicion;
-      simbolo = transiciones[i]->simboloDeTransicion;
-      nuevasTransiciones.reserve(1);
-      nuevasTransiciones.push_back(new Transicion(estado1,estado2,simbolo));
-    }
-  }
-  return nuevasTransiciones; 
 }
