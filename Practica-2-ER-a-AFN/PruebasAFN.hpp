@@ -12,8 +12,6 @@ public:
   void probarCadenasAFN(AFN automataDePrueba);
   void crearAFN();
   AFN convertirERaAFN(std::string expresionRegular);
-  std::vector<Transicion*> obtenerTransiciones(Estado* estadoInicial, std::vector<Transicion*> transiciones);
-  std::vector<Transicion*> obtenerTransicionesInicial(Estado* estadoInicial, Estado* estadoFinal, std::vector<Transicion*> transiciones);
 };
 
 #endif
