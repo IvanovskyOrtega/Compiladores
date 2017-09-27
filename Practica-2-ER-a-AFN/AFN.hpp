@@ -12,16 +12,24 @@ public:
     bool cambiarDeEstadoAFN(std::vector<Estado*> estados, std::vector<Transicion*> tablaDeTransiciones, Estado* estadoActual, std::string cadena, char simbolo, int indice);
     void agregarTransicion(AFN* afn, int estado1, int estado2, char simbolo, bool esEpsilon);
     void renumerarEstados(AFN* subafn, int numero);
+    void copiarAlfabeto(AFN* afn, AFN subafn);
     void agregarTransiciones(AFN* afn, std::vector<Transicion*> tablaDeTransiciones);
     void agregarTransicionEpsilon(AFN* afn, Estado* estado1,Estado* estado2);
     void agregarEstados(AFN* afn, std::vector<Estado*> estados);
     void concatenar(AFN* afn, char simbolo, bool esEpsilon);
     void unir(AFN* afn, AFN subafn);
     void eliminarEstadoFinal(AFN* afn);
+    void eliminarEstadoInicial(AFN *afn);
+    void modificarTransiciones(AFN* afn, int antiguo, int nuevo);
+    void swapTransiciones(AFN* afn, int antiguo, int nuevo);
+    void renumerarEstado(AFN *afn, int antiguo, int nuevo);
     void aplicarCerraduraKleenAFN(AFN *afn);
     void aplicarCerraduraKleen(AFN* afn, char c, bool esEpsilon);
     void aplicarCerraduraPositivaAFN(AFN *afn);
     void aplicarCerraduraPositiva(AFN* afn, char c, bool esEpsilon);
+    bool buscarEnAlfabeto(AFN* afn, char c);
+    void agregarSimboloAlAlfabeto(AFN* afn, char c);
+    Estado* obtenerEstado(int numeroDeEstado);
 };
 
 #endif
