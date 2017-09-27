@@ -95,6 +95,9 @@ AFN PruebasAFN::convertirERaAFN(string expresionRegular){
   int cadlen = expresionRegular.size();
   bool parentesis = true;
   while(i < cadlen){
+    balanceo = 0;
+    parentesis = true;
+    j=0;
     if(expresionRegular[i] == '('){
       j = i + 1;
       balanceo++;
@@ -110,29 +113,41 @@ AFN PruebasAFN::convertirERaAFN(string expresionRegular){
         }
         j++;
       }
-      subexpresion = expresionRegular.substr(i+1,j-2);
+      subexpresion = expresionRegular.substr(i+1,j-2-(i));
       AFN subAfn = convertirERaAFN(subexpresion);
-      if(j != cadlen && expresionRegular[j] == '*'){
-        //kleen de el sub afn
-        afn.aplicarCerraduraKleenAFN(&subAfn);
-        i++;
+      if(j < cadlen){
+        if(expresionRegular[j] == '*'){
+          //kleen de el sub afn
+          afn.aplicarCerraduraKleenAFN(&subAfn);
+          j++;
+        }
+        else if(expresionRegular[j] == '+'){
+          //positiva de el sub afn
+          afn.aplicarCerraduraPositivaAFN(&subAfn);
+          j++;
+        }
       }
-      else if(j != cadlen && expresionRegular[j] == '+'){
-        //positiva de el sub afn
-        afn.aplicarCerraduraPositivaAFN(&subAfn);
-        i++;
-      }
+      afn.copiarAlfabeto(&afn,subAfn);
+      int numeroDeEstados = afn.automata_estados.size();
+      afn.eliminarEstadoFinal(&afn);
+      Estado * estado = subAfn.obtenerEstadoInicial();
       if((int)afn.automata_estados.size()==0){
         afn.automata_estadoInicial = subAfn.automata_estadoInicial;
       }
-      afn.automata_alfabeto = subAfn.automata_alfabeto;
-      int numeroDeEstados = afn.automata_estados.size();
-      afn.eliminarEstadoFinal(&afn);
-      afn.renumerarEstados(&subAfn, numeroDeEstados);
+      else{
+        if(estado->numeroDeEstado != 0){
+          subAfn.renumerarEstado(&subAfn,0,estado->numeroDeEstado);
+          subAfn.renumerarEstado(&subAfn,estado->numeroDeEstado,0);
+          subAfn.swapTransiciones(&subAfn,estado->numeroDeEstado,0);
+        }
+        subAfn.renumerarEstados(&subAfn, numeroDeEstados-1);
+        subAfn.modificarTransiciones(&subAfn,0,numeroDeEstados-1);
+        subAfn.eliminarEstadoInicial(&subAfn);
+      }
       afn.agregarEstados(&afn, subAfn.automata_estados);
       afn.agregarTransiciones(&afn, subAfn.automata_tablaDeTransiciones);
       afn.automata_estadoFinal = subAfn.automata_estadoFinal;
-      i = j+1;
+      i += (j-i);
     }
     if(isalpha(expresionRegular[i])){
       //concatenar
@@ -143,38 +158,33 @@ AFN PruebasAFN::convertirERaAFN(string expresionRegular){
       if(i < cadlen - 1 ){
         if(expresionRegular[i+1]=='*'){
           afn.aplicarCerraduraKleen(&afn,expresionRegular[i],esEpsilon);
+          afn.agregarSimboloAlAlfabeto(&afn,expresionRegular[i]);
           i+=2;
         }
         else if(expresionRegular[i+1]=='+'){
           afn.aplicarCerraduraPositiva(&afn,expresionRegular[i],esEpsilon);
+          afn.agregarSimboloAlAlfabeto(&afn,expresionRegular[i]);
           i+=2;
         }
         else{
           afn.concatenar(&afn,expresionRegular[i],esEpsilon);
-          afn.automata_alfabeto.reserve(1);
-          afn.automata_alfabeto.push_back(expresionRegular[i]);
+          afn.agregarSimboloAlAlfabeto(&afn,expresionRegular[i]);
           i++;
         }
       }
       else{
         afn.concatenar(&afn,expresionRegular[i],esEpsilon);
-        afn.automata_alfabeto.reserve(1);
-        afn.automata_alfabeto.push_back(expresionRegular[i]);
+        afn.agregarSimboloAlAlfabeto(&afn,expresionRegular[i]);
         i++;
       }
     }
     else if(expresionRegular[i] == '|'){
       //Union
       AFN subAfnUnion;
-      int k;
-      for(k = i+1 ; k < cadlen ; k++){
-        if(expresionRegular[k] == '|' || expresionRegular[i] == '(' || expresionRegular[i] == ')'){
-          break;
-        }
-      }
-      subAfnUnion = convertirERaAFN(expresionRegular.substr(i+1,k-1));
+      subAfnUnion = convertirERaAFN(expresionRegular.substr(i+1,expresionRegular.size()-1));
       afn.unir(&afn,subAfnUnion);
-      i=k;
+      afn.copiarAlfabeto(&afn,subAfnUnion);
+      i=expresionRegular.size();
     }
   }
   return afn;
