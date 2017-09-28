@@ -6,6 +6,7 @@ public:
   int numeroDeEstado;
   bool esFinal;
   Estado();
-  Estado(int numDeEstado, bool tipo);};
-
+  Estado(int numDeEstado, bool tipo);
+};
+// Estado.hpp
 #endif
