@@ -39,25 +39,25 @@ bool AFN::cambiarDeEstadoAFN(vector<Estado*> estados, vector<Transicion*> tablaD
     for(i = 0; i < k; i++){
         if(tablaDeTransiciones[i]->estadoActual == estadoActual->numeroDeEstado){
           if(tablaDeTransiciones[i]->esTransicionEpsilon){ // Si hay transicion epsilon
-            cout << "Entra a recursion con simbolo" << endl;
+            //cout << "Entra a recursion con simbolo" << endl;
             tieneTransicion = true;
             indice--;
             cout << "\tδ(q" << estadoActual->numeroDeEstado << ", E)";
             cout << " = q" << tablaDeTransiciones[i]->estadoDeTransicion << endl;
             estadoDeTransicion = obtenerEstado(tablaDeTransiciones[i]->estadoDeTransicion);
             cambio = cambiarDeEstadoAFN(estados, tablaDeTransiciones, estadoDeTransicion, cadena, cadena[indice],indice);
-            cout << "Termina recursion con simbolo" << endl;
+            //cout << "Termina recursion con simbolo" << endl;
             resultado = resultado || cambio;
             indice++;
           }
           else if(tablaDeTransiciones[i]->simboloDeTransicion == simbolo){ // Si hay trnasicion con el simbolo
-            cout << "Entra a recursion con epsilon" << endl;
+            //cout << "Entra a recursion con epsilon" << endl;
             tieneTransicion = true;
             cout << "\tδ(q" << estadoActual->numeroDeEstado << "," << simbolo << ")";
             cout << " = q" << tablaDeTransiciones[i]->estadoDeTransicion << endl;
             estadoDeTransicion = obtenerEstado(tablaDeTransiciones[i]->estadoDeTransicion);
             cambio = cambiarDeEstadoAFN(estados, tablaDeTransiciones, estadoDeTransicion, cadena, cadena[indice],indice);
-            cout << "Termina recursion con epsilon" << endl;
+            //cout << "Termina recursion con epsilon" << endl;
             resultado = resultado || cambio;
           }
         }
@@ -74,12 +74,12 @@ bool AFN::cambiarDeEstadoAFN(vector<Estado*> estados, vector<Transicion*> tablaD
         if(tablaDeTransiciones[i]->estadoActual == estadoActual->numeroDeEstado){
           if(tablaDeTransiciones[i]->esTransicionEpsilon){ // Si tiene transicion epsilon
             tieneTransicion = true;
-            cout << "Entra a recursion con epsilon" << endl;
+            //cout << "Entra a recursion con epsilon" << endl;
             cout << "\tδ(q" << estadoActual->numeroDeEstado << ", E)";
             cout << " = q" << tablaDeTransiciones[i]->estadoDeTransicion << endl;
             estadoDeTransicion = obtenerEstado(tablaDeTransiciones[i]->estadoDeTransicion);
             cambio = cambiarDeEstadoAFN(estados, tablaDeTransiciones, estadoDeTransicion, cadena, cadena[indice],indice);
-            cout << "Termina recursion con epsilon" << endl;
+            //cout << "Termina recursion con epsilon" << endl;
             resultado = resultado || cambio;
           }
         }
