@@ -2,10 +2,20 @@
 
 using namespace std;
 
+/**
+ * Constructor
+ * **/
 Pruebas::Pruebas(){};
+
 /**
     Esta funcion determina si un simbolo pertenece al alfabeto
     del automata.
+    Recibe:
+      - vector<char> alfabeto :: El alfabeto del automata
+      - char simbolo :: El simbolo a buscar en el automata
+    Regresa:
+      - true :: si se encontro el simbolo
+      - false :: si no se encontro el simbolo
 **/
 bool Pruebas::buscarSimbolo(vector<char> alfabeto, char simbolo){
   int k = alfabeto.size();
@@ -18,6 +28,10 @@ bool Pruebas::buscarSimbolo(vector<char> alfabeto, char simbolo){
 
 /**
     Esta funcion define el alfabeto del automata.
+    Recibe:
+      - int numeroDeSimbolos :: El numero de simbolos del alfabeto
+    Regresa:
+      - vector<char> alfabetoAux :: El alfabeto generado
 **/
 vector<char> Pruebas::definirAlfabeto(int numeroDeSimbolos){
   vector<char> alfabetoAux; // Usamos un arreglo auxiliar
@@ -33,6 +47,10 @@ vector<char> Pruebas::definirAlfabeto(int numeroDeSimbolos){
 
 /**
     Esta funcion permite agregar estados al automata.
+    Recibe:
+      - int numeroDeEstados :: la cantidad de estados a agregar.
+    Regresa:
+      - vector<Estado*> estados :: El vector de estados
 **/
 vector<Estado*> Pruebas::agregarEstados(int numeroDeEstados){
   char esFinal; // Variable para saber si es estado final o no

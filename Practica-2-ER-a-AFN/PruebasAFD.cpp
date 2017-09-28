@@ -2,6 +2,11 @@
 
 /**
     Esta funcion permite  definir las transiciones del automata AFD.
+    Recibe: 
+      - int numeroDeTransiciones :: El numero de transiciones a definir
+      - vector<char> alfabeto :: El alfabeto del automata
+    Regresa:
+      - vector<Transicion*> transiciones :: La tabla de transiciones del AFD
 **/
 vector<Transicion*> PruebasAFD::definirTransicionesAFD(int numeroDeTransiciones, vector<char> alfabeto){
   vector<Transicion*> transiciones;
@@ -25,6 +30,14 @@ vector<Transicion*> PruebasAFD::definirTransicionesAFD(int numeroDeTransiciones,
   return transiciones;
 }
 
+/**
+ * Esta funcion ejecuta pruebas con cadenas en un automata AFD.
+ * Recibe:
+ *  -AFD automataDePrueba :: Automata para la prueba.
+ * Regresa:
+ *  -true :: si la cadena fue reconocida por el AFD
+ *  -false :: si la cadena no fue reconocida por el AFD
+ * **/
 bool PruebasAFD::iniciarPruebaAFD(AFD automataDePrueba){
   string cadenaDePrueba;
   cout << "Ingresa una cadena de prueba: ";
@@ -32,6 +45,12 @@ bool PruebasAFD::iniciarPruebaAFD(AFD automataDePrueba){
   return automataDePrueba.cambiarDeEstadoAFD(automataDePrueba.Automata::obtenerEstados(), automataDePrueba.Automata::obtenerTablaDeTransiciones(), automataDePrueba.Automata::obtenerEstadoInicial(), cadenaDePrueba, cadenaDePrueba[0],0);
 }
 
+/**
+ * Esta funcion prueba una cadena en un AFD con base a su funcion
+ * de transicion.
+ * Recibe:
+ *  - AFD automataDePrueba :: El automata AFD a probar
+ * **/
 void PruebasAFD::probarCadenasAFD(AFD automataDePrueba){
   char opcion;
   automataDePrueba.Automata::toString("AFD");
@@ -45,6 +64,10 @@ void PruebasAFD::probarCadenasAFD(AFD automataDePrueba){
   }
 }
 
+/**
+ * Esta funcion permite crear un AFD a partir de un archivo
+ * o ingresando informacion desde consola.
+ * **/
 void PruebasAFD::crearAFD(){
     char opcion;
     cout << "Crear desde archivo? (s/n)" << endl;

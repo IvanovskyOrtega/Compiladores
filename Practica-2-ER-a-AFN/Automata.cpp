@@ -6,8 +6,14 @@
 
 using namespace std;
 
+/**
+ * Constructor
+ * **/
 Automata::Automata(){};
 
+/**
+ * Constructor
+ * **/
 Automata::Automata(vector<Estado*> estados,vector<char> alfabeto, Estado* estadoInicial,vector<Transicion*> tablaDeTransiciones){
   automata_estados = estados;
   automata_alfabeto = alfabeto;
@@ -15,6 +21,9 @@ Automata::Automata(vector<Estado*> estados,vector<char> alfabeto, Estado* estado
   automata_tablaDeTransiciones = tablaDeTransiciones;
 };
 
+/**
+ * Constructor con estado final (usado en las construcciones de Thompson)
+ * **/
 Automata::Automata(vector<Estado*> estados,vector<char> alfabeto, Estado* estadoInicial, Estado* estadoFinal, vector<Transicion*> tablaDeTransiciones){
     automata_estados = estados;
     automata_alfabeto = alfabeto;
@@ -23,6 +32,12 @@ Automata::Automata(vector<Estado*> estados,vector<char> alfabeto, Estado* estado
     automata_tablaDeTransiciones = tablaDeTransiciones;
   };
 
+/**
+ * Constructor mediante archivo.
+ * Recibe:
+ *  - string archivo :: El nombre del archivo que contiene la informacio del automata
+ *  - string tipo :: "AFN" o "AFD"
+ * **/
 Automata::Automata(string archivo, string tipo){
     if(tipo=="AFN"){
       ifstream afn(archivo);
@@ -143,22 +158,46 @@ Automata::Automata(string archivo, string tipo){
             cout << "Tipo invalido." << endl;
 };
 
+/**
+ * Esta funcion obtiene el vector de estados del automata
+ * **/
 vector<Estado*> Automata::obtenerEstados(){
     return automata_estados;
 }
+
+/**
+ * Esta funcion obtiene la tablade transiciones del automata
+ * **/
 vector<Transicion*> Automata::obtenerTablaDeTransiciones(){
     return automata_tablaDeTransiciones;
 }
+
+/**
+ * Esta funcion obtiene alfabeto del automata
+ * **/
 vector<char> Automata::obtenerAlfabeto(){
     return automata_alfabeto;
 }
+
+/**
+ * Esta funcion obtiene el estado inicial del automata
+ * **/
 Estado* Automata::obtenerEstadoInicial(){
     return automata_estadoInicial;
 }
+
+
+/**
+ * Esta funcion obtiene el estado final del automata
+ * **/
 Estado* Automata::obtenerEstadoFinal(){
     return automata_estadoFinal;
 }
 
+/**
+ * Metodo toString de la clase Automata, imprime la informacion
+ * del automata.
+ * **/
 void Automata::toString(string tipo){
   int i;
   int k = automata_estados.size();
