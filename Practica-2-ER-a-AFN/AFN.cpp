@@ -23,7 +23,6 @@ bool AFN::cambiarDeEstadoAFN(vector<Estado*> estados, vector<Transicion*> tablaD
   }*/
   if(indice < (int)cadena.size()){
     indice++;
-    cout << endl;
     for(i = 0; i < k; i++){
         if(tablaDeTransiciones[i]->estadoActual == estadoActual->numeroDeEstado){
           if(tablaDeTransiciones[i]->esTransicionEpsilon){
