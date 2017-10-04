@@ -3,7 +3,6 @@
 
 #include "Automata.hpp"
 
-// AFN
 class AFN: public Automata{
 public:
     AFN():Automata(){};
