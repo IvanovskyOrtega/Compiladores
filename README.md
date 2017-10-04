@@ -6,7 +6,9 @@ Prácticas de la materia de Compiladores, hechas en C++ (a excepción del ejempl
 ```
 Linux: Tan facil como escribir "make" 
 ```
+```
 Para el ejemplo de Jaccie, crear el proyecto en su IDE de preferencia, leer el Readme de la práctica 4.
+```
 ```
 Windows: No ha sido probado aún.
 ```
