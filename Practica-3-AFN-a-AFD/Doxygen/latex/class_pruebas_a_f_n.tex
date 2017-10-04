@@ -1,0 +1,84 @@
+\hypertarget{class_pruebas_a_f_n}{}\section{Pruebas\+A\+FN Class Reference}
+\label{class_pruebas_a_f_n}\index{Pruebas\+A\+FN@{Pruebas\+A\+FN}}
+Inheritance diagram for Pruebas\+A\+FN\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pruebas_a_f_n}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{class_transicion}{Transicion} $\ast$ $>$ \hyperlink{class_pruebas_a_f_n_ab895e1c3ac049325060b898084a22a61}{definir\+Transiciones\+A\+FN} (int numero\+De\+Transiciones, std\+::vector$<$ char $>$ alfabeto)
+\item 
+bool \hyperlink{class_pruebas_a_f_n_a8d6784ce185b05b5e454274674b0a63f}{iniciar\+Prueba\+A\+FN} (\hyperlink{class_a_f_n}{A\+FN} automata\+De\+Prueba)
+\item 
+bool \hyperlink{class_pruebas_a_f_n_aae54c0ea1b237f04b5b3f8625a1b58d2}{no\+Es\+Especial} (char a)
+\item 
+void \hyperlink{class_pruebas_a_f_n_a9349654408b4c931fd854f8cd304d324}{probar\+Cadenas\+A\+FN} (\hyperlink{class_a_f_n}{A\+FN} automata\+De\+Prueba)
+\item 
+void \hyperlink{class_pruebas_a_f_n_a1df5917c3e8b3f2dc1f83744ad30ffdb}{crear\+A\+FN} ()
+\item 
+\hyperlink{class_a_f_n}{A\+FN} \hyperlink{class_pruebas_a_f_n_a6fe30bfd1b6d13a1ac3a2ad6a6b70750}{convertir\+E\+Ra\+A\+FN} (std\+::string expresion\+Regular)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pruebas_a_f_n_a6fe30bfd1b6d13a1ac3a2ad6a6b70750}\label{class_pruebas_a_f_n_a6fe30bfd1b6d13a1ac3a2ad6a6b70750}} 
+\index{Pruebas\+A\+FN@{Pruebas\+A\+FN}!convertir\+E\+Ra\+A\+FN@{convertir\+E\+Ra\+A\+FN}}
+\index{convertir\+E\+Ra\+A\+FN@{convertir\+E\+Ra\+A\+FN}!Pruebas\+A\+FN@{Pruebas\+A\+FN}}
+\subsubsection{\texorpdfstring{convertir\+E\+Ra\+A\+F\+N()}{convertirERaAFN()}}
+{\footnotesize\ttfamily \hyperlink{class_a_f_n}{A\+FN} Pruebas\+A\+F\+N\+::convertir\+E\+Ra\+A\+FN (\begin{DoxyParamCaption}\item[{std\+::string}]{expresion\+Regular }\end{DoxyParamCaption})}
+
+Esta funcion permite convertir una expresion regular en un \hyperlink{class_a_f_n}{A\+FN} usando las construcciones de Thompson. Recibe\+:
+\begin{DoxyItemize}
+\item string expresion\+Regular \+:\+: cadena que representa a la expresion regular Regresa\+: \hyperlink{class_a_f_n}{A\+FN} afn \+:\+: El automata finito no determinista que reconoce el lenguaje generado por la expresion regular, hecho mediante las construcciones de Thompson. 
+\end{DoxyItemize}\mbox{\Hypertarget{class_pruebas_a_f_n_a1df5917c3e8b3f2dc1f83744ad30ffdb}\label{class_pruebas_a_f_n_a1df5917c3e8b3f2dc1f83744ad30ffdb}} 
+\index{Pruebas\+A\+FN@{Pruebas\+A\+FN}!crear\+A\+FN@{crear\+A\+FN}}
+\index{crear\+A\+FN@{crear\+A\+FN}!Pruebas\+A\+FN@{Pruebas\+A\+FN}}
+\subsubsection{\texorpdfstring{crear\+A\+F\+N()}{crearAFN()}}
+{\footnotesize\ttfamily void Pruebas\+A\+F\+N\+::crear\+A\+FN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Esta funcion permite crear un \hyperlink{class_a_f_n}{A\+FN} a partir de un archivo o ingresando informacion desde consola. \mbox{\Hypertarget{class_pruebas_a_f_n_ab895e1c3ac049325060b898084a22a61}\label{class_pruebas_a_f_n_ab895e1c3ac049325060b898084a22a61}} 
+\index{Pruebas\+A\+FN@{Pruebas\+A\+FN}!definir\+Transiciones\+A\+FN@{definir\+Transiciones\+A\+FN}}
+\index{definir\+Transiciones\+A\+FN@{definir\+Transiciones\+A\+FN}!Pruebas\+A\+FN@{Pruebas\+A\+FN}}
+\subsubsection{\texorpdfstring{definir\+Transiciones\+A\+F\+N()}{definirTransicionesAFN()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{class_transicion}{Transicion} $\ast$ $>$ Pruebas\+A\+F\+N\+::definir\+Transiciones\+A\+FN (\begin{DoxyParamCaption}\item[{int}]{numero\+De\+Transiciones,  }\item[{std\+::vector$<$ char $>$}]{alfabeto }\end{DoxyParamCaption})}
+
+Esta funcion permite definir las transiciones del automata \hyperlink{class_a_f_n}{A\+FN}. Recibe\+:
+\begin{DoxyItemize}
+\item int numero\+De\+Transiciones \+:\+: El numero de transiciones a definir
+\item vector$<$char$>$ alfabeto \+:\+: El alfabeto del automata Regresa\+:
+\item vector$<$\+Transicion$\ast$$>$ transiciones \+:\+: La tabla de transiciones del \hyperlink{class_a_f_n}{A\+FN} 
+\end{DoxyItemize}\mbox{\Hypertarget{class_pruebas_a_f_n_a8d6784ce185b05b5e454274674b0a63f}\label{class_pruebas_a_f_n_a8d6784ce185b05b5e454274674b0a63f}} 
+\index{Pruebas\+A\+FN@{Pruebas\+A\+FN}!iniciar\+Prueba\+A\+FN@{iniciar\+Prueba\+A\+FN}}
+\index{iniciar\+Prueba\+A\+FN@{iniciar\+Prueba\+A\+FN}!Pruebas\+A\+FN@{Pruebas\+A\+FN}}
+\subsubsection{\texorpdfstring{iniciar\+Prueba\+A\+F\+N()}{iniciarPruebaAFN()}}
+{\footnotesize\ttfamily bool Pruebas\+A\+F\+N\+::iniciar\+Prueba\+A\+FN (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN}}]{automata\+De\+Prueba }\end{DoxyParamCaption})}
+
+Esta funcion ejecuta pruebas con cadenas en un automata \hyperlink{class_a_f_n}{A\+FN}. Recibe\+: -\/\+A\+FN automata\+De\+Prueba \+:\+: \hyperlink{class_automata}{Automata} para la prueba. Regresa\+: -\/true \+:\+: si la cadena fue reconocida por el \hyperlink{class_a_f_n}{A\+FN} -\/false \+:\+: si la cadena no fue reconocida por el \hyperlink{class_a_f_n}{A\+FN} \mbox{\Hypertarget{class_pruebas_a_f_n_aae54c0ea1b237f04b5b3f8625a1b58d2}\label{class_pruebas_a_f_n_aae54c0ea1b237f04b5b3f8625a1b58d2}} 
+\index{Pruebas\+A\+FN@{Pruebas\+A\+FN}!no\+Es\+Especial@{no\+Es\+Especial}}
+\index{no\+Es\+Especial@{no\+Es\+Especial}!Pruebas\+A\+FN@{Pruebas\+A\+FN}}
+\subsubsection{\texorpdfstring{no\+Es\+Especial()}{noEsEspecial()}}
+{\footnotesize\ttfamily bool Pruebas\+A\+F\+N\+::no\+Es\+Especial (\begin{DoxyParamCaption}\item[{char}]{a }\end{DoxyParamCaption})}
+
+Esta funcion comprueba que un caracter no sea el caracter nulo o alguno de los caracteres especiales utilizados para definir expresiones regulares. Recibe\+:
+\begin{DoxyItemize}
+\item char a \+:\+: caracter a evaluar Regresa\+:
+\item true \+:\+: si el caracter no pertenece a un operador de ER o el caracter nulo
+\item false \+:\+: si es un operador de ER o es el caracter nulo 
+\end{DoxyItemize}\mbox{\Hypertarget{class_pruebas_a_f_n_a9349654408b4c931fd854f8cd304d324}\label{class_pruebas_a_f_n_a9349654408b4c931fd854f8cd304d324}} 
+\index{Pruebas\+A\+FN@{Pruebas\+A\+FN}!probar\+Cadenas\+A\+FN@{probar\+Cadenas\+A\+FN}}
+\index{probar\+Cadenas\+A\+FN@{probar\+Cadenas\+A\+FN}!Pruebas\+A\+FN@{Pruebas\+A\+FN}}
+\subsubsection{\texorpdfstring{probar\+Cadenas\+A\+F\+N()}{probarCadenasAFN()}}
+{\footnotesize\ttfamily void Pruebas\+A\+F\+N\+::probar\+Cadenas\+A\+FN (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN}}]{automata\+De\+Prueba }\end{DoxyParamCaption})}
+
+Esta funcion prueba una cadena en un \hyperlink{class_a_f_n}{A\+FN} con base a su funcion de transicion. Recibe\+:
+\begin{DoxyItemize}
+\item \hyperlink{class_a_f_n}{A\+FN} automata\+De\+Prueba \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN} a probar 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pruebas\+A\+F\+N.\+hpp\item 
+Pruebas\+A\+F\+N.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,299 @@
+\hypertarget{class_a_f_n}{}\section{A\+FN Class Reference}
+\label{class_a_f_n}\index{A\+FN@{A\+FN}}
+Inheritance diagram for A\+FN\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_f_n}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_a_f_n_a1a1a5a306993dc75210534dc44d68b6e}\label{class_a_f_n_a1a1a5a306993dc75210534dc44d68b6e}} 
+{\bfseries A\+FN} (std\+::string archivo, std\+::string tipo)
+\item 
+\mbox{\Hypertarget{class_a_f_n_a91830f0864d932083dd22fdd37130ccf}\label{class_a_f_n_a91830f0864d932083dd22fdd37130ccf}} 
+{\bfseries A\+FN} (std\+::vector$<$ \hyperlink{class_estado}{Estado} $\ast$$>$ estados, std\+::vector$<$ char $>$ alfabeto, \hyperlink{class_estado}{Estado} $\ast$estado\+Inicial, std\+::vector$<$ \hyperlink{class_transicion}{Transicion} $\ast$$>$ tabla\+De\+Transiciones)
+\item 
+\mbox{\Hypertarget{class_a_f_n_a6182f3845980b55ce144e89a3e5f0d1d}\label{class_a_f_n_a6182f3845980b55ce144e89a3e5f0d1d}} 
+{\bfseries A\+FN} (std\+::vector$<$ \hyperlink{class_estado}{Estado} $\ast$$>$ estados, std\+::vector$<$ char $>$ alfabeto, \hyperlink{class_estado}{Estado} $\ast$estado\+Inicial, \hyperlink{class_estado}{Estado} $\ast$estado\+Final, std\+::vector$<$ \hyperlink{class_transicion}{Transicion} $\ast$$>$ tabla\+De\+Transiciones)
+\item 
+bool \hyperlink{class_a_f_n_afb6a2f99f54906074bd00e49538ea1f7}{cambiar\+De\+Estado\+A\+FN} (std\+::vector$<$ \hyperlink{class_estado}{Estado} $\ast$$>$ estados, std\+::vector$<$ \hyperlink{class_transicion}{Transicion} $\ast$$>$ tabla\+De\+Transiciones, \hyperlink{class_estado}{Estado} $\ast$estado\+Actual, std\+::string cadena, char simbolo, int indice)
+\item 
+void \hyperlink{class_a_f_n_a3722c00ec07a1df9887336a48ce33050}{renumerar\+Estados} (\hyperlink{class_a_f_n}{A\+FN} $\ast$subafn, int numero)
+\item 
+bool \hyperlink{class_a_f_n_a8435129e1a74e46b2727ddc087b7b3eb}{buscar\+En\+Alfabeto} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn, char c)
+\item 
+void \hyperlink{class_a_f_n_ac4e76a6828f9e227ed460d2e75a3a965}{agregar\+Simbolo\+Al\+Alfabeto} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn, char c)
+\item 
+void \hyperlink{class_a_f_n_a1c17f6a2dd580162303127bfbdac2d4b}{copiar\+Alfabeto} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn, \hyperlink{class_a_f_n}{A\+FN} subafn)
+\item 
+void \hyperlink{class_a_f_n_aaf3c4c74bdc3bc0bc31c1513773fbce2}{agregar\+Transicion} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn, int estado1, int estado2, char simbolo, bool es\+Epsilon)
+\item 
+void \hyperlink{class_a_f_n_a67852dd0b85a91d9114df429592850ac}{agregar\+Transicion\+Epsilon} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn, \hyperlink{class_estado}{Estado} $\ast$estado1, \hyperlink{class_estado}{Estado} $\ast$estado2)
+\item 
+void \hyperlink{class_a_f_n_aec249b192efe9df63c9e6df4ef5b96af}{agregar\+Transiciones} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn, std\+::vector$<$ \hyperlink{class_transicion}{Transicion} $\ast$$>$ tabla\+De\+Transiciones)
+\item 
+void \hyperlink{class_a_f_n_a565f890649af177b45ad4111ad0d14ec}{agregar\+Estados} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn, std\+::vector$<$ \hyperlink{class_estado}{Estado} $\ast$$>$ estados)
+\item 
+void \hyperlink{class_a_f_n_a9585f1a106bc12c61682025cf3bce1f7}{eliminar\+Estado\+Final} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn)
+\item 
+void \hyperlink{class_a_f_n_a13782c7d882786a73b35e289d75c9c61}{eliminar\+Estado\+Inicial} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn)
+\item 
+void \hyperlink{class_a_f_n_a88e43b61c88b0fa50babdc343b432166}{modificar\+Transiciones} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn, int antiguo, int nuevo)
+\item 
+void \hyperlink{class_a_f_n_af2804ad2f92e4a909fd9afffb64a47c4}{swap\+Transiciones} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn, int antiguo, int nuevo)
+\item 
+void \hyperlink{class_a_f_n_aae3289b516c0cbf17759c279f1544e09}{renumerar\+Estado} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn, int antiguo, int nuevo)
+\item 
+void \hyperlink{class_a_f_n_a5247562556a165a9eae8524143ace7db}{concatenar} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn, char simbolo, bool es\+Epsilon)
+\item 
+void \hyperlink{class_a_f_n_ac4100292cd0b27797b1e4ee50266a079}{unir} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn, \hyperlink{class_a_f_n}{A\+FN} subafn)
+\item 
+void \hyperlink{class_a_f_n_a778ea064155d383463cabd37ac301a14}{aplicar\+Cerradura\+Kleen\+A\+FN} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn)
+\item 
+void \hyperlink{class_a_f_n_aed4763d61a7630ff6c4810be588c6089}{aplicar\+Cerradura\+Kleen} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn, char c, bool es\+Epsilon)
+\item 
+void \hyperlink{class_a_f_n_a951fb01c6437c633311aa15b1246a290}{aplicar\+Cerradura\+Positiva\+A\+FN} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn)
+\item 
+void \hyperlink{class_a_f_n_a7341086a00410a1a6a2ba4262a10d249}{aplicar\+Cerradura\+Positiva} (\hyperlink{class_a_f_n}{A\+FN} $\ast$afn, char c, bool es\+Epsilon)
+\item 
+void \hyperlink{class_a_f_n_a12af101cefe7072f22f9bd52442c4167}{generar\+Archivo\+A\+FN} (\hyperlink{class_a_f_n}{A\+FN} afn)
+\item 
+\hyperlink{class_estado}{Estado} $\ast$ \hyperlink{class_a_f_n_af6cb39f268a7722d65452b790349211d}{obtener\+Estado} (int numero\+De\+Estado)
+\item 
+\mbox{\Hypertarget{class_a_f_n_afa47c783d422d46161fe02266f65c861}\label{class_a_f_n_afa47c783d422d46161fe02266f65c861}} 
+std\+::vector$<$ char $>$ {\bfseries obtener\+Alfabeto} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_a_f_n_a565f890649af177b45ad4111ad0d14ec}\label{class_a_f_n_a565f890649af177b45ad4111ad0d14ec}} 
+\index{A\+FN@{A\+FN}!agregar\+Estados@{agregar\+Estados}}
+\index{agregar\+Estados@{agregar\+Estados}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{agregar\+Estados()}{agregarEstados()}}
+{\footnotesize\ttfamily void A\+F\+N\+::agregar\+Estados (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn,  }\item[{std\+::vector$<$ \hyperlink{class_estado}{Estado} $\ast$$>$}]{estados }\end{DoxyParamCaption})}
+
+Esta funcion agrega los elementos de un vector de estados a el automata \hyperlink{class_a_f_n}{A\+FN}. Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN}
+\item vector$<$\+Estado$\ast$$>$ estados \+:\+: El vector de estados 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_ac4e76a6828f9e227ed460d2e75a3a965}\label{class_a_f_n_ac4e76a6828f9e227ed460d2e75a3a965}} 
+\index{A\+FN@{A\+FN}!agregar\+Simbolo\+Al\+Alfabeto@{agregar\+Simbolo\+Al\+Alfabeto}}
+\index{agregar\+Simbolo\+Al\+Alfabeto@{agregar\+Simbolo\+Al\+Alfabeto}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{agregar\+Simbolo\+Al\+Alfabeto()}{agregarSimboloAlAlfabeto()}}
+{\footnotesize\ttfamily void A\+F\+N\+::agregar\+Simbolo\+Al\+Alfabeto (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+Esta funcion agrega un simbolo al alfabeto del automata \hyperlink{class_a_f_n}{A\+FN} Recibe\+: -\/\+A\+FN $\ast$ afn \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN}
+\begin{DoxyItemize}
+\item char c \+:\+: El caracter a a agregar en el alfabeto 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_aaf3c4c74bdc3bc0bc31c1513773fbce2}\label{class_a_f_n_aaf3c4c74bdc3bc0bc31c1513773fbce2}} 
+\index{A\+FN@{A\+FN}!agregar\+Transicion@{agregar\+Transicion}}
+\index{agregar\+Transicion@{agregar\+Transicion}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{agregar\+Transicion()}{agregarTransicion()}}
+{\footnotesize\ttfamily void A\+F\+N\+::agregar\+Transicion (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn,  }\item[{int}]{estado1,  }\item[{int}]{estado2,  }\item[{char}]{simbolo,  }\item[{bool}]{es\+Epsilon }\end{DoxyParamCaption})}
+
+Esta funcion agrega una transicion en la tabla del transiciones del \hyperlink{class_a_f_n}{A\+FN} Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN}
+\end{DoxyItemize}
+
+int estado1 \+:\+: El estado desde el que inicia la transicion
+\begin{DoxyItemize}
+\item int estado2 \+:\+: El estado al que se transita
+\item char simbolo \+:\+: El simbolo con el que se transita
+\item bool es\+Epsilon \+:\+: Bandera para saber si la transicion es epsilon 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_a67852dd0b85a91d9114df429592850ac}\label{class_a_f_n_a67852dd0b85a91d9114df429592850ac}} 
+\index{A\+FN@{A\+FN}!agregar\+Transicion\+Epsilon@{agregar\+Transicion\+Epsilon}}
+\index{agregar\+Transicion\+Epsilon@{agregar\+Transicion\+Epsilon}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{agregar\+Transicion\+Epsilon()}{agregarTransicionEpsilon()}}
+{\footnotesize\ttfamily void A\+F\+N\+::agregar\+Transicion\+Epsilon (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn,  }\item[{\hyperlink{class_estado}{Estado} $\ast$}]{estado1,  }\item[{\hyperlink{class_estado}{Estado} $\ast$}]{estado2 }\end{DoxyParamCaption})}
+
+Esta funcion agrega una transicion epsilon a la tabla de transiciones de un automata \hyperlink{class_a_f_n}{A\+FN}. Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN}
+\item Estado$\ast$ estado1 \+:\+: El estado donde inicia la transicion epsilon
+\item Estado$\ast$ estado2 \+:\+: El estado a donde se transita con epsilon 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_aec249b192efe9df63c9e6df4ef5b96af}\label{class_a_f_n_aec249b192efe9df63c9e6df4ef5b96af}} 
+\index{A\+FN@{A\+FN}!agregar\+Transiciones@{agregar\+Transiciones}}
+\index{agregar\+Transiciones@{agregar\+Transiciones}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{agregar\+Transiciones()}{agregarTransiciones()}}
+{\footnotesize\ttfamily void A\+F\+N\+::agregar\+Transiciones (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn,  }\item[{std\+::vector$<$ \hyperlink{class_transicion}{Transicion} $\ast$$>$}]{tabla\+De\+Transiciones }\end{DoxyParamCaption})}
+
+Esta funcion agrega los elementos de una tabla de transiciones a el automata \hyperlink{class_a_f_n}{A\+FN}. Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN}
+\item vector$<$\+Transicion$\ast$$>$ tabla\+De\+Transiciones \+:\+: El vector de transiciones 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_aed4763d61a7630ff6c4810be588c6089}\label{class_a_f_n_aed4763d61a7630ff6c4810be588c6089}} 
+\index{A\+FN@{A\+FN}!aplicar\+Cerradura\+Kleen@{aplicar\+Cerradura\+Kleen}}
+\index{aplicar\+Cerradura\+Kleen@{aplicar\+Cerradura\+Kleen}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{aplicar\+Cerradura\+Kleen()}{aplicarCerraduraKleen()}}
+{\footnotesize\ttfamily void A\+F\+N\+::aplicar\+Cerradura\+Kleen (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn,  }\item[{char}]{c,  }\item[{bool}]{es\+Epsilon }\end{DoxyParamCaption})}
+
+Esta funcion aplica la cerradura de Kleen de un simbolo c, y se la concatena a un automata \hyperlink{class_a_f_n}{A\+FN}. Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: El automata afn al que se le concatenará el automata que corresponde a la cerradura del simbolo.
+\item char c \+:\+: El simbolo al que le corresponde la cerradura.
+\item bool es\+Epsilon \+:\+: Bandera para saber si es una transicion epsilon. 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_a778ea064155d383463cabd37ac301a14}\label{class_a_f_n_a778ea064155d383463cabd37ac301a14}} 
+\index{A\+FN@{A\+FN}!aplicar\+Cerradura\+Kleen\+A\+FN@{aplicar\+Cerradura\+Kleen\+A\+FN}}
+\index{aplicar\+Cerradura\+Kleen\+A\+FN@{aplicar\+Cerradura\+Kleen\+A\+FN}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{aplicar\+Cerradura\+Kleen\+A\+F\+N()}{aplicarCerraduraKleenAFN()}}
+{\footnotesize\ttfamily void A\+F\+N\+::aplicar\+Cerradura\+Kleen\+A\+FN (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn }\end{DoxyParamCaption})}
+
+Esta funcion aplica la cerradura de Kleen a un \hyperlink{class_a_f_n}{A\+FN}. Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN} generado durante el proceso de conversion de ER a \hyperlink{class_a_f_n}{A\+FN}. 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_a7341086a00410a1a6a2ba4262a10d249}\label{class_a_f_n_a7341086a00410a1a6a2ba4262a10d249}} 
+\index{A\+FN@{A\+FN}!aplicar\+Cerradura\+Positiva@{aplicar\+Cerradura\+Positiva}}
+\index{aplicar\+Cerradura\+Positiva@{aplicar\+Cerradura\+Positiva}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{aplicar\+Cerradura\+Positiva()}{aplicarCerraduraPositiva()}}
+{\footnotesize\ttfamily void A\+F\+N\+::aplicar\+Cerradura\+Positiva (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn,  }\item[{char}]{c,  }\item[{bool}]{es\+Epsilon }\end{DoxyParamCaption})}
+
+Esta funcion aplica la cerradura de positiva de un simbolo c, y se la concatena a un automata \hyperlink{class_a_f_n}{A\+FN}. Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: El automata afn al que se le concatenará el automata que corresponde a la cerradura del simbolo.
+\item char c \+:\+: El simbolo al que le corresponde la cerradura.
+\item bool es\+Epsilon \+:\+: Bandera para saber si es una transicion epsilon. 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_a951fb01c6437c633311aa15b1246a290}\label{class_a_f_n_a951fb01c6437c633311aa15b1246a290}} 
+\index{A\+FN@{A\+FN}!aplicar\+Cerradura\+Positiva\+A\+FN@{aplicar\+Cerradura\+Positiva\+A\+FN}}
+\index{aplicar\+Cerradura\+Positiva\+A\+FN@{aplicar\+Cerradura\+Positiva\+A\+FN}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{aplicar\+Cerradura\+Positiva\+A\+F\+N()}{aplicarCerraduraPositivaAFN()}}
+{\footnotesize\ttfamily void A\+F\+N\+::aplicar\+Cerradura\+Positiva\+A\+FN (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn }\end{DoxyParamCaption})}
+
+Esta funcion aplica la cerradura de positiva a un \hyperlink{class_a_f_n}{A\+FN}. Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN} generado durante el proceso de conversion de ER a \hyperlink{class_a_f_n}{A\+FN}. 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_a8435129e1a74e46b2727ddc087b7b3eb}\label{class_a_f_n_a8435129e1a74e46b2727ddc087b7b3eb}} 
+\index{A\+FN@{A\+FN}!buscar\+En\+Alfabeto@{buscar\+En\+Alfabeto}}
+\index{buscar\+En\+Alfabeto@{buscar\+En\+Alfabeto}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{buscar\+En\+Alfabeto()}{buscarEnAlfabeto()}}
+{\footnotesize\ttfamily bool A\+F\+N\+::buscar\+En\+Alfabeto (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn,  }\item[{char}]{c }\end{DoxyParamCaption})}
+
+Esta funcion busca un simbolo para saber si pertenece al alfabeto del automata. Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN}
+\item char c \+:\+: El simbolo a buscar en el alfabeto Regresa\+:
+\end{DoxyItemize}
+
+true \+:\+: Si se encontro el simbolo
+\begin{DoxyItemize}
+\item false \+:\+: si no se encontro 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_afb6a2f99f54906074bd00e49538ea1f7}\label{class_a_f_n_afb6a2f99f54906074bd00e49538ea1f7}} 
+\index{A\+FN@{A\+FN}!cambiar\+De\+Estado\+A\+FN@{cambiar\+De\+Estado\+A\+FN}}
+\index{cambiar\+De\+Estado\+A\+FN@{cambiar\+De\+Estado\+A\+FN}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{cambiar\+De\+Estado\+A\+F\+N()}{cambiarDeEstadoAFN()}}
+{\footnotesize\ttfamily bool A\+F\+N\+::cambiar\+De\+Estado\+A\+FN (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \hyperlink{class_estado}{Estado} $\ast$$>$}]{estados,  }\item[{std\+::vector$<$ \hyperlink{class_transicion}{Transicion} $\ast$$>$}]{tabla\+De\+Transiciones,  }\item[{\hyperlink{class_estado}{Estado} $\ast$}]{estado\+Actual,  }\item[{std\+::string}]{cadena,  }\item[{char}]{simbolo,  }\item[{int}]{indice }\end{DoxyParamCaption})}
+
+Esta función realiza el cambio de estados (funcion de transicion), de un \hyperlink{class_a_f_n}{A\+FN} Recibe\+: -\/vector$<$Estado$\ast$$>$ estados \+:\+: vector de estados del \hyperlink{class_a_f_n}{A\+FN} -\/vector$<$Transicion$\ast$$>$ tabla\+De\+Transiciones \+:\+: tabla de transiciones del \hyperlink{class_a_f_n}{A\+FN} -\/\+Estado$\ast$ estado\+Actual \+:\+: El estado en el que se encuentra. -\/string cadena \+:\+: La cadena a evaluar -\/char simbolo \+:\+: El simbolo de transicion -\/int indice \+:\+: La posicion actual de la cadena Regresa\+: -\/true \+:\+: Si la cadena fue validada -\/false \+:\+: Si la cadena no fue validada \mbox{\Hypertarget{class_a_f_n_a5247562556a165a9eae8524143ace7db}\label{class_a_f_n_a5247562556a165a9eae8524143ace7db}} 
+\index{A\+FN@{A\+FN}!concatenar@{concatenar}}
+\index{concatenar@{concatenar}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{concatenar()}{concatenar()}}
+{\footnotesize\ttfamily void A\+F\+N\+::concatenar (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn,  }\item[{char}]{simbolo,  }\item[{bool}]{es\+Epsilon }\end{DoxyParamCaption})}
+
+Esta funcion realiza la operacion de concatenacion de un simbolo de acuerdo a las construcciones de Thompson. Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN}
+\item char c \+:\+: El simbolo a concatenar
+\item bool es\+Epsilon \+:\+: bandera para saber si es una transicion epsilon 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_a1c17f6a2dd580162303127bfbdac2d4b}\label{class_a_f_n_a1c17f6a2dd580162303127bfbdac2d4b}} 
+\index{A\+FN@{A\+FN}!copiar\+Alfabeto@{copiar\+Alfabeto}}
+\index{copiar\+Alfabeto@{copiar\+Alfabeto}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{copiar\+Alfabeto()}{copiarAlfabeto()}}
+{\footnotesize\ttfamily void A\+F\+N\+::copiar\+Alfabeto (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn,  }\item[{\hyperlink{class_a_f_n}{A\+FN}}]{subafn }\end{DoxyParamCaption})}
+
+Esta funcion copia el alfabeto de un sub\+Afn a un afn principal. Recibe\+: -\/\+A\+F\+N$\ast$ afn \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN} principal -\/\+A\+FN subafn \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN} subafn \mbox{\Hypertarget{class_a_f_n_a9585f1a106bc12c61682025cf3bce1f7}\label{class_a_f_n_a9585f1a106bc12c61682025cf3bce1f7}} 
+\index{A\+FN@{A\+FN}!eliminar\+Estado\+Final@{eliminar\+Estado\+Final}}
+\index{eliminar\+Estado\+Final@{eliminar\+Estado\+Final}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{eliminar\+Estado\+Final()}{eliminarEstadoFinal()}}
+{\footnotesize\ttfamily void A\+F\+N\+::eliminar\+Estado\+Final (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn }\end{DoxyParamCaption})}
+
+Esta función cambia la propiedad \char`\"{}tipo\char`\"{} del estado final del \hyperlink{class_a_f_n}{A\+FN} a un estado no final. Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN} 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_a13782c7d882786a73b35e289d75c9c61}\label{class_a_f_n_a13782c7d882786a73b35e289d75c9c61}} 
+\index{A\+FN@{A\+FN}!eliminar\+Estado\+Inicial@{eliminar\+Estado\+Inicial}}
+\index{eliminar\+Estado\+Inicial@{eliminar\+Estado\+Inicial}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{eliminar\+Estado\+Inicial()}{eliminarEstadoInicial()}}
+{\footnotesize\ttfamily void A\+F\+N\+::eliminar\+Estado\+Inicial (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn }\end{DoxyParamCaption})}
+
+Esta funcion elimina el estado inicial de un automata \hyperlink{class_a_f_n}{A\+FN}. Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: el automata \hyperlink{class_a_f_n}{A\+FN} 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_a12af101cefe7072f22f9bd52442c4167}\label{class_a_f_n_a12af101cefe7072f22f9bd52442c4167}} 
+\index{A\+FN@{A\+FN}!generar\+Archivo\+A\+FN@{generar\+Archivo\+A\+FN}}
+\index{generar\+Archivo\+A\+FN@{generar\+Archivo\+A\+FN}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{generar\+Archivo\+A\+F\+N()}{generarArchivoAFN()}}
+{\footnotesize\ttfamily void A\+F\+N\+::generar\+Archivo\+A\+FN (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN}}]{afn }\end{DoxyParamCaption})}
+
+Esta funcion genera un archivo que contiene la informacion del afn generado por una expresion regular mediante construcciones de Thompson. \mbox{\Hypertarget{class_a_f_n_a88e43b61c88b0fa50babdc343b432166}\label{class_a_f_n_a88e43b61c88b0fa50babdc343b432166}} 
+\index{A\+FN@{A\+FN}!modificar\+Transiciones@{modificar\+Transiciones}}
+\index{modificar\+Transiciones@{modificar\+Transiciones}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{modificar\+Transiciones()}{modificarTransiciones()}}
+{\footnotesize\ttfamily void A\+F\+N\+::modificar\+Transiciones (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn,  }\item[{int}]{antiguo,  }\item[{int}]{nuevo }\end{DoxyParamCaption})}
+
+Esta funcion modifica las transiciones que corresponden a un estado, remplazandolas por uno nuevo. Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN}
+\item int antiguo \+:\+: El numero del estado al que se le renumerarán las transiciones
+\item int nuevo \+:\+: El numero de estado por el que serán remplazadas las transiciones donde se encuentre el estado antiguo. 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_af6cb39f268a7722d65452b790349211d}\label{class_a_f_n_af6cb39f268a7722d65452b790349211d}} 
+\index{A\+FN@{A\+FN}!obtener\+Estado@{obtener\+Estado}}
+\index{obtener\+Estado@{obtener\+Estado}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{obtener\+Estado()}{obtenerEstado()}}
+{\footnotesize\ttfamily \hyperlink{class_estado}{Estado} $\ast$ A\+F\+N\+::obtener\+Estado (\begin{DoxyParamCaption}\item[{int}]{numero\+De\+Estado }\end{DoxyParamCaption})}
+
+Esta funcion obtiene un estado del automata \hyperlink{class_a_f_n}{A\+FN} de acuerdo al numero de estado que le correspone. Recibe\+:
+\begin{DoxyItemize}
+\item int numero\+De\+Estado \+:\+: el numero del estado del \hyperlink{class_a_f_n}{A\+FN} Regresa\+:
+\item Estado$\ast$ automata\+\_\+estados\mbox{[}i\mbox{]} \+:\+: si se encontro dicho estado en la posicion i del vector de estados
+\item Estado+ muerto \+:\+: Si no se encontro el estado 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_aae3289b516c0cbf17759c279f1544e09}\label{class_a_f_n_aae3289b516c0cbf17759c279f1544e09}} 
+\index{A\+FN@{A\+FN}!renumerar\+Estado@{renumerar\+Estado}}
+\index{renumerar\+Estado@{renumerar\+Estado}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{renumerar\+Estado()}{renumerarEstado()}}
+{\footnotesize\ttfamily void A\+F\+N\+::renumerar\+Estado (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn,  }\item[{int}]{antiguo,  }\item[{int}]{nuevo }\end{DoxyParamCaption})}
+
+Esta funcion renumera un estado del automata \hyperlink{class_a_f_n}{A\+FN}. Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN}
+\item int antiguo \+:\+: El numero del estado a renumerar
+\item int nuevo \+:\+: El nuevo numero del estado 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_a3722c00ec07a1df9887336a48ce33050}\label{class_a_f_n_a3722c00ec07a1df9887336a48ce33050}} 
+\index{A\+FN@{A\+FN}!renumerar\+Estados@{renumerar\+Estados}}
+\index{renumerar\+Estados@{renumerar\+Estados}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{renumerar\+Estados()}{renumerarEstados()}}
+{\footnotesize\ttfamily void A\+F\+N\+::renumerar\+Estados (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{subafn,  }\item[{int}]{numero }\end{DoxyParamCaption})}
+
+Esta funcion renumera los estados de un automata sumandoles el numero de estados de el automata principal (Esta funcion se aplica a los sub\+Afn\textquotesingle{}s que se van generando en la funcion recursiva de conversión de ER a \hyperlink{class_a_f_n}{A\+FN}). Ademas renumera los estados en la tabla de transiciones. Recibe\+:
+\begin{DoxyItemize}
+\item \hyperlink{class_a_f_n}{A\+FN} $\ast$afn \+:\+: El automata \hyperlink{class_a_f_n}{A\+FN}
+\item int numero \+:\+: El numero de estados del afn principal 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_af2804ad2f92e4a909fd9afffb64a47c4}\label{class_a_f_n_af2804ad2f92e4a909fd9afffb64a47c4}} 
+\index{A\+FN@{A\+FN}!swap\+Transiciones@{swap\+Transiciones}}
+\index{swap\+Transiciones@{swap\+Transiciones}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{swap\+Transiciones()}{swapTransiciones()}}
+{\footnotesize\ttfamily void A\+F\+N\+::swap\+Transiciones (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn,  }\item[{int}]{estado1,  }\item[{int}]{estado2 }\end{DoxyParamCaption})}
+
+Esta función intercambia las transiciones de un estado antiguo a un estado nuevo y viceversa. Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: el automata \hyperlink{class_a_f_n}{A\+FN}
+\item int estado1 \+:\+: El estado 1 de intercambio
+\item int estado2 \+:\+: El estado 2 de intercambio 
+\end{DoxyItemize}\mbox{\Hypertarget{class_a_f_n_ac4100292cd0b27797b1e4ee50266a079}\label{class_a_f_n_ac4100292cd0b27797b1e4ee50266a079}} 
+\index{A\+FN@{A\+FN}!unir@{unir}}
+\index{unir@{unir}!A\+FN@{A\+FN}}
+\subsubsection{\texorpdfstring{unir()}{unir()}}
+{\footnotesize\ttfamily void A\+F\+N\+::unir (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_n}{A\+FN} $\ast$}]{afn,  }\item[{\hyperlink{class_a_f_n}{A\+FN}}]{subafn }\end{DoxyParamCaption})}
+
+Esta funcion realiza la operacion de union de acuerdo a las contrucciones de Thompson. Recibe\+:
+\begin{DoxyItemize}
+\item A\+F\+N$\ast$ afn \+:\+: El afn principal.
+\item \hyperlink{class_a_f_n}{A\+FN} subafn \+:\+: el subafn 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+A\+F\+N.\+hpp\item 
+A\+F\+N.\+cpp\end{DoxyCompactItemize}

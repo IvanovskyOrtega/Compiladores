@@ -1,0 +1,69 @@
+\hypertarget{class_pruebas}{}\section{Pruebas Class Reference}
+\label{class_pruebas}\index{Pruebas@{Pruebas}}
+Inheritance diagram for Pruebas\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pruebas}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_pruebas_af78514bc056a28b5477af6b75216364e}{Pruebas} ()
+\item 
+bool \hyperlink{class_pruebas_ab1eda5c03c5298ba35c48845ff6544eb}{buscar\+Simbolo} (std\+::vector$<$ char $>$ alfabeto, char simbolo)
+\item 
+std\+::vector$<$ char $>$ \hyperlink{class_pruebas_a4f7adc9be1f1f9ec96d6a713c728f4cc}{definir\+Alfabeto} (int numero\+De\+Simbolos)
+\item 
+std\+::vector$<$ \hyperlink{class_estado}{Estado} $\ast$ $>$ \hyperlink{class_pruebas_a7d80b5a28534edbf0f92f56e8e423f3e}{agregar\+Estados} (int numero\+De\+Estados)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_pruebas_af78514bc056a28b5477af6b75216364e}\label{class_pruebas_af78514bc056a28b5477af6b75216364e}} 
+\index{Pruebas@{Pruebas}!Pruebas@{Pruebas}}
+\index{Pruebas@{Pruebas}!Pruebas@{Pruebas}}
+\subsubsection{\texorpdfstring{Pruebas()}{Pruebas()}}
+{\footnotesize\ttfamily Pruebas\+::\+Pruebas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pruebas_a7d80b5a28534edbf0f92f56e8e423f3e}\label{class_pruebas_a7d80b5a28534edbf0f92f56e8e423f3e}} 
+\index{Pruebas@{Pruebas}!agregar\+Estados@{agregar\+Estados}}
+\index{agregar\+Estados@{agregar\+Estados}!Pruebas@{Pruebas}}
+\subsubsection{\texorpdfstring{agregar\+Estados()}{agregarEstados()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{class_estado}{Estado} $\ast$ $>$ Pruebas\+::agregar\+Estados (\begin{DoxyParamCaption}\item[{int}]{numero\+De\+Estados }\end{DoxyParamCaption})}
+
+Esta funcion permite agregar estados al automata. Recibe\+:
+\begin{DoxyItemize}
+\item int numero\+De\+Estados \+:\+: la cantidad de estados a agregar. Regresa\+:
+\item vector$<$\+Estado$\ast$$>$ estados \+:\+: El vector de estados 
+\end{DoxyItemize}\mbox{\Hypertarget{class_pruebas_ab1eda5c03c5298ba35c48845ff6544eb}\label{class_pruebas_ab1eda5c03c5298ba35c48845ff6544eb}} 
+\index{Pruebas@{Pruebas}!buscar\+Simbolo@{buscar\+Simbolo}}
+\index{buscar\+Simbolo@{buscar\+Simbolo}!Pruebas@{Pruebas}}
+\subsubsection{\texorpdfstring{buscar\+Simbolo()}{buscarSimbolo()}}
+{\footnotesize\ttfamily bool Pruebas\+::buscar\+Simbolo (\begin{DoxyParamCaption}\item[{std\+::vector$<$ char $>$}]{alfabeto,  }\item[{char}]{simbolo }\end{DoxyParamCaption})}
+
+Esta funcion determina si un simbolo pertenece al alfabeto del automata. Recibe\+:
+\begin{DoxyItemize}
+\item vector$<$char$>$ alfabeto \+:\+: El alfabeto del automata
+\item char simbolo \+:\+: El simbolo a buscar en el automata Regresa\+:
+\item true \+:\+: si se encontro el simbolo
+\item false \+:\+: si no se encontro el simbolo 
+\end{DoxyItemize}\mbox{\Hypertarget{class_pruebas_a4f7adc9be1f1f9ec96d6a713c728f4cc}\label{class_pruebas_a4f7adc9be1f1f9ec96d6a713c728f4cc}} 
+\index{Pruebas@{Pruebas}!definir\+Alfabeto@{definir\+Alfabeto}}
+\index{definir\+Alfabeto@{definir\+Alfabeto}!Pruebas@{Pruebas}}
+\subsubsection{\texorpdfstring{definir\+Alfabeto()}{definirAlfabeto()}}
+{\footnotesize\ttfamily vector$<$ char $>$ Pruebas\+::definir\+Alfabeto (\begin{DoxyParamCaption}\item[{int}]{numero\+De\+Simbolos }\end{DoxyParamCaption})}
+
+Esta funcion define el alfabeto del automata. Recibe\+:
+\begin{DoxyItemize}
+\item int numero\+De\+Simbolos \+:\+: El numero de simbolos del alfabeto Regresa\+:
+\item vector$<$char$>$ alfabeto\+Aux \+:\+: El alfabeto generado 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pruebas.\+hpp\item 
+Pruebas.\+cpp\end{DoxyCompactItemize}

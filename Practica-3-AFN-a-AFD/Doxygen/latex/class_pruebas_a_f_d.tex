@@ -1,0 +1,60 @@
+\hypertarget{class_pruebas_a_f_d}{}\section{Pruebas\+A\+FD Class Reference}
+\label{class_pruebas_a_f_d}\index{Pruebas\+A\+FD@{Pruebas\+A\+FD}}
+Inheritance diagram for Pruebas\+A\+FD\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pruebas_a_f_d}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{class_transicion}{Transicion} $\ast$ $>$ \hyperlink{class_pruebas_a_f_d_a991ac328ebeae3ca84958887cbf4e41d}{definir\+Transiciones\+A\+FD} (int numero\+De\+Transiciones, std\+::vector$<$ char $>$ alfabeto)
+\item 
+bool \hyperlink{class_pruebas_a_f_d_ae8c9889569bc90bc8f55c3b09c4570eb}{iniciar\+Prueba\+A\+FD} (\hyperlink{class_a_f_d}{A\+FD} automata\+De\+Prueba)
+\item 
+void \hyperlink{class_pruebas_a_f_d_ab377ec9490bd437af165410a3ff10fd4}{probar\+Cadenas\+A\+FD} (\hyperlink{class_a_f_d}{A\+FD} automata\+De\+Prueba)
+\item 
+void \hyperlink{class_pruebas_a_f_d_acecc332248164ed9dc6b37029e0c0f33}{crear\+A\+FD} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pruebas_a_f_d_acecc332248164ed9dc6b37029e0c0f33}\label{class_pruebas_a_f_d_acecc332248164ed9dc6b37029e0c0f33}} 
+\index{Pruebas\+A\+FD@{Pruebas\+A\+FD}!crear\+A\+FD@{crear\+A\+FD}}
+\index{crear\+A\+FD@{crear\+A\+FD}!Pruebas\+A\+FD@{Pruebas\+A\+FD}}
+\subsubsection{\texorpdfstring{crear\+A\+F\+D()}{crearAFD()}}
+{\footnotesize\ttfamily void Pruebas\+A\+F\+D\+::crear\+A\+FD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Esta funcion permite crear un \hyperlink{class_a_f_d}{A\+FD} a partir de un archivo o ingresando informacion desde consola. \mbox{\Hypertarget{class_pruebas_a_f_d_a991ac328ebeae3ca84958887cbf4e41d}\label{class_pruebas_a_f_d_a991ac328ebeae3ca84958887cbf4e41d}} 
+\index{Pruebas\+A\+FD@{Pruebas\+A\+FD}!definir\+Transiciones\+A\+FD@{definir\+Transiciones\+A\+FD}}
+\index{definir\+Transiciones\+A\+FD@{definir\+Transiciones\+A\+FD}!Pruebas\+A\+FD@{Pruebas\+A\+FD}}
+\subsubsection{\texorpdfstring{definir\+Transiciones\+A\+F\+D()}{definirTransicionesAFD()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{class_transicion}{Transicion} $\ast$ $>$ Pruebas\+A\+F\+D\+::definir\+Transiciones\+A\+FD (\begin{DoxyParamCaption}\item[{int}]{numero\+De\+Transiciones,  }\item[{std\+::vector$<$ char $>$}]{alfabeto }\end{DoxyParamCaption})}
+
+Esta funcion permite definir las transiciones del automata \hyperlink{class_a_f_d}{A\+FD}. Recibe\+:
+\begin{DoxyItemize}
+\item int numero\+De\+Transiciones \+:\+: El numero de transiciones a definir
+\item vector$<$char$>$ alfabeto \+:\+: El alfabeto del automata Regresa\+:
+\item vector$<$\+Transicion$\ast$$>$ transiciones \+:\+: La tabla de transiciones del \hyperlink{class_a_f_d}{A\+FD} 
+\end{DoxyItemize}\mbox{\Hypertarget{class_pruebas_a_f_d_ae8c9889569bc90bc8f55c3b09c4570eb}\label{class_pruebas_a_f_d_ae8c9889569bc90bc8f55c3b09c4570eb}} 
+\index{Pruebas\+A\+FD@{Pruebas\+A\+FD}!iniciar\+Prueba\+A\+FD@{iniciar\+Prueba\+A\+FD}}
+\index{iniciar\+Prueba\+A\+FD@{iniciar\+Prueba\+A\+FD}!Pruebas\+A\+FD@{Pruebas\+A\+FD}}
+\subsubsection{\texorpdfstring{iniciar\+Prueba\+A\+F\+D()}{iniciarPruebaAFD()}}
+{\footnotesize\ttfamily bool Pruebas\+A\+F\+D\+::iniciar\+Prueba\+A\+FD (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_d}{A\+FD}}]{automata\+De\+Prueba }\end{DoxyParamCaption})}
+
+Esta funcion ejecuta pruebas con cadenas en un automata \hyperlink{class_a_f_d}{A\+FD}. Recibe\+: -\/\+A\+FD automata\+De\+Prueba \+:\+: \hyperlink{class_automata}{Automata} para la prueba. Regresa\+: -\/true \+:\+: si la cadena fue reconocida por el \hyperlink{class_a_f_d}{A\+FD} -\/false \+:\+: si la cadena no fue reconocida por el \hyperlink{class_a_f_d}{A\+FD} \mbox{\Hypertarget{class_pruebas_a_f_d_ab377ec9490bd437af165410a3ff10fd4}\label{class_pruebas_a_f_d_ab377ec9490bd437af165410a3ff10fd4}} 
+\index{Pruebas\+A\+FD@{Pruebas\+A\+FD}!probar\+Cadenas\+A\+FD@{probar\+Cadenas\+A\+FD}}
+\index{probar\+Cadenas\+A\+FD@{probar\+Cadenas\+A\+FD}!Pruebas\+A\+FD@{Pruebas\+A\+FD}}
+\subsubsection{\texorpdfstring{probar\+Cadenas\+A\+F\+D()}{probarCadenasAFD()}}
+{\footnotesize\ttfamily void Pruebas\+A\+F\+D\+::probar\+Cadenas\+A\+FD (\begin{DoxyParamCaption}\item[{\hyperlink{class_a_f_d}{A\+FD}}]{automata\+De\+Prueba }\end{DoxyParamCaption})}
+
+Esta funcion prueba una cadena en un \hyperlink{class_a_f_d}{A\+FD} con base a su funcion de transicion. Recibe\+:
+\begin{DoxyItemize}
+\item \hyperlink{class_a_f_d}{A\+FD} automata\+De\+Prueba \+:\+: El automata \hyperlink{class_a_f_d}{A\+FD} a probar 
+\end{DoxyItemize}
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Pruebas\+A\+F\+D.\+hpp\item 
+Pruebas\+A\+F\+D.\+cpp\end{DoxyCompactItemize}
