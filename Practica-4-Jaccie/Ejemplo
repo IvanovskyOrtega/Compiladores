@@ -1,0 +1,11 @@
+/*
+Este texto será ignorado :U
+*/
+int a = 5; 
+int octal =  0777; 
+int no_octal = 09874; 
+float a = 0.5f;
+double uyUnDouble = 5.E+10;
+char hexa = 0xAb14;
+a = 0X5FFF;
+<Este texto no sera procesado>

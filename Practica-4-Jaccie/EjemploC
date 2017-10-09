@@ -1,0 +1,42 @@
+Note:
+*********************************************************************************************
+Ejemplo de Jaccie con asignaciones en C.
+*********************************************************************************************
+
+Import:
+
+
+Global Declarations:
+
+
+Separators:
+Standard
+
+String-Token:
+$"
+
+Verbatim-Token:
+$<$>
+
+Comments:
+Comment: "/*" "*/"
+
+Patterns:
+<asignacionPattern> := $=
+<caracterPattern> := ({$a-$z}|{$A-$Z})
+<caracterASCII> := ({#065-#090}|{#097-#122})
+<caracterUNICODE> :=  ({#0041-#005A}|{#0061-#007A})
+
+Tokens:
+<palabraReservada> := ("auto"|"double"|"int"|"struct"|"break"|"else"|"long"|"switch"|"case"|"enum"|"register"|"typedef"|"char"|"extern"|"return"|"union"|"continue"|"for"|"signed"|"void"|"do"|"if"|"static"|"while"|"default"|"goto"|"sizeof"|"volatile"|"const"|"float"|"short"|"unsigned")
+<operador> := ($+|$-|$*|$/|$%)
+<asignacion> := <asignacionPattern>
+<cteDecimal> := ($+|$-)[0-1]({$1-$9} {$0-$9}[0-*]|$0)
+<cteOctal> :=  ($+|$-)[0-1]($0){$0-$7}[1-*]
+<cteHexadecimal> :=  ($+|$-)[0-1]("0x"|"0X")({$0-$9}|{$a-$z}|{$A-$Z})[1-*]
+<cteDouble> := <cteDecimal>($.){$0-$9}[0-*](($E|$e)<cteDecimal>)[0-1]
+<cteDouble2> := ($+|$-)[0-1]($.){$0-$9}[1-*](($E|$e)<cteDecimal>)[0-1]
+<cteFlotante> :=  <cteDecimal>($.){$0-$9}[1-*](($E|$e)<cteDecimal>)[0-1]$f
+<cteFlotante2> := ($+|$-)[0-1]($.){$0-$9}[1-*](($E|$e)<cteDecimal>)[0-1]$f 
+<identificador> := ($_|<caracterPattern>)[1]($_|<caracterPattern>|{$0-$9})[0-*]
+<puntoYComa> := $;
