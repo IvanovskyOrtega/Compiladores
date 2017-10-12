@@ -1,18 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-#define TAM 9 // Tamanio de la cadena
-
-char cadena[TAM] = "aaaacbbab"; // Cadena a evaluar
+char* cadena; // Cadena a evaluar
 int indice = 0; // Posicion del indice de la cadena
+int TAM;
 
 void S();
 void consume(char caracter);
 void error();
 void aceptada();
 
-int main(){
-    S();
+int main(int argc, char** argv){
+    if(argc >= 2){
+        cadena = strdup(argv[1]);
+        printf("Cadena a evaluar: %s\n",cadena);
+        TAM = strlen(cadena);
+        S();
+    }
+    else{
+        printf("./p cadena\n");
+    }
     return 0;
 }
 
