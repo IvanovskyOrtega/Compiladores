@@ -38,7 +38,6 @@ vector<Estado*> Pruebas::agregarEstados(int numeroDeEstados){
   char esFinal; // Variable para saber si es estado final o no
   vector<Estado*> estados; //Vector de estados
   for(int i = 0; i < numeroDeEstados; i++){
-    if(i != 0){
       cout << "Estado q" << i << endl;
       cout << "\tEs estado final? (s/n) : ";
       cin >> esFinal;
@@ -50,12 +49,6 @@ vector<Estado*> Pruebas::agregarEstados(int numeroDeEstados){
           estados.reserve(1);
           estados.push_back(new Estado(i,false));
       }
-    }
-    else{
-      cout << "\nEstado inicial q0" << endl;
-      estados.reserve(1);
-      estados.push_back(new Estado(i,false));
-    }
   }
   return estados;
 }
