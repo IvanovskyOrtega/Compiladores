@@ -36,11 +36,9 @@ Automata::Automata(string archivo, string tipo){
               automata_alfabeto.push_back(simbolo);
           }
           getline(afn,numEdos);
-          automata_estados.reserve(1);
-          automata_estados.push_back(new Estado(0,false));
-          automata_estadoInicial = automata_estados[0];
           numEstados = stoi(numEdos);
-          for(i = 1; i < numEstados; i++){
+          automata_estados.reserve(numEstados);
+          for(i = 0; i < numEstados; i++){
               automata_estados.reserve(1);
               getline(afn,cadena);
               if(cadena[0]=='s')
@@ -48,6 +46,7 @@ Automata::Automata(string archivo, string tipo){
               else
                   automata_estados.push_back(new Estado(i,false));
           }
+          automata_estadoInicial = automata_estados[0];
           getline(afn,numTran);
           numTransiciones = stoi(numTran);
           for(i = 0 ; i < numTransiciones ; i++){
@@ -99,18 +98,16 @@ Automata::Automata(string archivo, string tipo){
                 automata_alfabeto.push_back(simbolo);
             }
             getline(afd,numEdos);
-            automata_estados.reserve(1);
-            automata_estados.push_back(new Estado(0,false));
-            automata_estadoInicial = automata_estados[0];
             numEstados = stoi(numEdos);
-            for(i = 1; i < numEstados; i++){
-                automata_estados.reserve(1);
+            automata_estados.reserve(numEstados);
+            for(i = 0; i < numEstados; i++){
                 getline(afd,cadena);
                 if(cadena[0]=='s')
                     automata_estados.push_back(new Estado(i,true));
                 else
                     automata_estados.push_back(new Estado(i,false));
             }
+            automata_estadoInicial = automata_estados[0];
             getline(afd,numTran);
             numTransiciones = stoi(numTran);
             for(i = 0 ; i < numTransiciones ; i++){
