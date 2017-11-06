@@ -1,0 +1,9 @@
+var i = 5;
+var j = 6;
+if (i < j)
+i = i + 1;
+var res = i - j;
+var a = 0;
+while res > a
+i = i + 1;
+j = i - res;
