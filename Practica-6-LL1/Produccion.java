@@ -1,9 +1,9 @@
 package ll1;
 
 public class Produccion {
-    public char simbolo;
+    public Character simbolo;
     public String produccion;
-    Produccion(char simbolo, String produccion){
+    Produccion(Character simbolo, String produccion){
         this.simbolo = simbolo;
         this.produccion = produccion;
     }
