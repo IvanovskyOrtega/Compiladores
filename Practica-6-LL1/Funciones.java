@@ -20,7 +20,6 @@ public class Funciones {
         lineasArchivo = leerArchivo(input.nextLine()+".txt");
         String linea;
         axioma = lineasArchivo.get(0).charAt(0);
-        System.out.println("Axioma: "+lineasArchivo.get(0));
         linea = lineasArchivo.get(1);
         for (int i = 0; i < linea.length() ; i+=2) {
             noTerminales.add(linea.charAt(i));
