@@ -22,38 +22,24 @@ trastes = ('t0','t1','t2','t3','t4','t5','t6','t7','t8','t9','t10','t11',
 
 cuerdas = ('c1','c2','c3','c4','c5','c6',)
 
-instrumentos = {'nylon'                : 'AN',
-                'acustica_nylon'       : 'AN',
-                'AN'                   : 'AN',
-                'acero'                : 'AA',
-                'acustica_acero'       : 'AA',
+instrumentos = {'AN'                   : 'AN',
                 'AA'                   : 'AA',
-                'jazz'                 : 'EJ',
-                'electrica_jazz'       : 'EJ',
                 'EJ'                   : 'EJ',
-                'clean'                : 'EC',
-                'electrica_limpia'     : 'EC',
                 'EC'                   : 'EC',
-                'muted'                : 'EM',
-                'electrica_muted'      : 'EM',
                 'EM'                   : 'EM',
-                'overdriven'           : 'OG',
-                'electrica_overdriven' : 'OG',
                 'OG'                   : 'OG',
-                'distorsion'           : 'DG',
-                'electrica_distorsion' : 'DG',
                 'DG'                   : 'DG',
                 }
 
 # Definimos las expresiones regulares para los tokens
 t_TEMPO = r'\b\d{1,3}\b'
-t_AN = r'(nylon)|(acustica_nylon)|(AN)'
-t_AA = r'(acero)|(acustica_acero)|(AA)'
-t_EJ = r'(jazz)|(electrica_jazz)|(EJ)'
-t_EC = r'(clean)|(electrica_limpia)|(EC)'
-t_EM = r'(muted)|(electrica_muted)|(EM)'
-t_OG = r'(overdriven)|(electrica_overdriven)|(OG)'
-t_DG = r'(distorsion)|(electrica_distorsion)|(DG)'
+t_AN = r'AN'
+t_AA = r'AA'
+t_EJ = r'EJ'
+t_EC = r'EC'
+t_EM = r'EM'
+t_OG = r'OG'
+t_DG = r'DG'
 
 # Ignoramos espacios, tabuladores y saltos de linea
 t_ignore  = ' \t'
