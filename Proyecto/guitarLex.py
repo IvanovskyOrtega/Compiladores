@@ -14,6 +14,7 @@ tokens = (
     'CUERDA',
     'COMENTARIO',
     'NOMBRE',
+    'NUEVA_LINEA',
 )
 
 trastes = ('t0','t1','t2','t3','t4','t5','t6','t7','t8','t9','t10','t11',
@@ -55,7 +56,7 @@ t_OG = r'(overdriven)|(electrica_overdriven)|(OG)'
 t_DG = r'(distorsion)|(electrica_distorsion)|(DG)'
 
 # Ignoramos espacios, tabuladores y saltos de linea
-t_ignore  = ' \t\n'
+t_ignore  = ' \t'
 
 def t_TRASTE(t):
     r'(t0)|(t((1[0-9])|(2[0-4])))'
@@ -73,6 +74,11 @@ def t_CUERDA(t):
 def t_COMENTARIO(t):
     r'//.*|/\*(.|\n)*\*/'
     pass # Hace que no cuente como token
+
+# Esta funcion sera de ayuda para los "time" en el midi
+def t_NUEVA_LINEA(t):
+    r'\n+'
+    t.lexer.lineno += len(t.value)
 
 def t_NOMBRE(t):
     r'[a-zA-Z_][a-zA-Z0-9_]+'
