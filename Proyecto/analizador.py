@@ -23,7 +23,6 @@ class Main:
 
     def iniciar(self):
         analizador_sintactico = AnalizadorSintactico()
-        print(str(sys.argv[1]))
         try:
             analizador_sintactico.analizar(str(sys.argv[1]))
         except:
