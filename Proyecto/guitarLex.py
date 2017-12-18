@@ -63,8 +63,9 @@ def t_COMENTARIO(t):
 
 # Esta funcion sera de ayuda para los "time" en el midi
 def t_NUEVA_LINEA(t):
-    r'\n+'
-    t.lexer.lineno += len(t.value)
+	r'(\n+)|(\r\n+)'
+	t.lexer.lineno += len(t.value)
+	return t
 
 def t_NOMBRE(t):
     r'[a-zA-Z_][a-zA-Z0-9_]+'
