@@ -51,7 +51,7 @@ notas_cuerda_1 = {
 }
 
 def p_PISTA(p):
-    '''PISTA : NOMBRE DEFINICION_PISTA'''
+    '''PISTA : NOMBRE NUEVA_LINEA DEFINICION_PISTA'''
     declaracion_archivo = 'archivoMIDI = open(\'' + str(p[1]) +'.mid\',\'wb\')\n'
     codigo_intermedio.write(declaracion_archivo)
 
@@ -62,19 +62,19 @@ def p_DEFINICION_PISTA(p):
     '''DEFINICION_PISTA : VALOR_TEMPO INSTRUMENTO NOTAS'''
 
 def p_VALOR_TEMPO(p):
-    '''VALOR_TEMPO : TEMPO'''
+    '''VALOR_TEMPO : TEMPO NUEVA_LINEA'''
     codigo_intermedio.write('tempo    = ' + str(p[1]) + '\n')
     codigo_intermedio.write('MyMIDI = MIDIFile(1)\n')
     codigo_intermedio.write('MyMIDI.addTempo(track, 0, tempo)\n')
 
 def p_INSTRUMENTO(p):
-    '''INSTRUMENTO : AN
-                   | AA
-                   | EJ
-                   | EC
-                   | EM
-                   | OG
-                   | DG'''
+    '''INSTRUMENTO : AN NUEVA_LINEA
+                   | AA NUEVA_LINEA
+                   | EJ NUEVA_LINEA
+                   | EC NUEVA_LINEA
+                   | EM NUEVA_LINEA
+                   | OG NUEVA_LINEA
+                   | DG NUEVA_LINEA'''
     if str(p[1]) == "AN":
         codigo_intermedio.write('MyMIDI.addProgramChange(track, channel, 0, 25)\n')
     elif str(p[1]) == "AA":
@@ -92,8 +92,9 @@ def p_INSTRUMENTO(p):
         
 
 def p_NOTAS(p):
-    '''NOTAS : NOTA NOTAS
-             | NOTA'''
+    '''NOTAS : NOTA NUEVA_LINEA NOTAS
+             | NOTA NUEVA_LINEA
+			 | NOTA'''
 
 def p_NOTA(p):
     '''NOTA : TRASTE CUERDA'''
