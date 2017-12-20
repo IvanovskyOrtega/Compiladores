@@ -1,6 +1,6 @@
 # COMPILADORES
 
-Prácticas de la materia de Compiladores, hechas en C++ (a excepción del ejemplo de Jaccie que esta en Java).
+Prácticas de la materia de Compiladores, hechas en C++ (a excepción del ejemplo de Jaccie que esta en Java y el proyecto en Python).
 
 ## Compilacion de las prácticas
 ```
